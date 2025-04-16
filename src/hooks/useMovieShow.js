@@ -1,12 +1,18 @@
 import { useEffect, useState } from 'react'
 
 export default function useMovieShow({ id }) {
+    const [refreshKey, setRefreshKey] = useState(0);
+
 
     const [singleMovie, setSingleMovie] = useState({
         state: 'loading'
     })
 
     const showEndpoint = `http://localhost:3000/api/v1/movies/${id}`
+
+    function handleCommentAdded() {
+        setRefreshKey(prevKey => prevKey + 1); // Cambia il valore per forzare il re-render
+    }
 
     useEffect(() => {
         fetch(showEndpoint)
@@ -25,9 +31,9 @@ export default function useMovieShow({ id }) {
                     message: err.message
                 })
             })
-    }, [])
+    }, [refreshKey])
 
 
-    return { singleMovie }
+    return { singleMovie, handleCommentAdded }
 
 }

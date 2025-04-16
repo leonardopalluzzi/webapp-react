@@ -1,9 +1,7 @@
 import CommentsSectionUi from "../dumb/CommentsSection.ui"
 import CommentForm from "./CommentForm"
 
-export default function CommentsSection({ comments }) {
-
-
+export default function CommentsSection({ comments, onCommentAdded }) {
 
     if (comments.length == 0) {
         return (
@@ -18,6 +16,7 @@ export default function CommentsSection({ comments }) {
                     <h3>Reviews:</h3>
                     {comments.map(item => (
                         <CommentsSectionUi
+
                             key={item.id}
                             username={item.name}
                             content={item.text}
@@ -26,7 +25,7 @@ export default function CommentsSection({ comments }) {
                     ))}
                 </ul>
                 <div>
-                    <CommentForm />
+                    <CommentForm onCommentAdded={onCommentAdded} />
                 </div>
 
 

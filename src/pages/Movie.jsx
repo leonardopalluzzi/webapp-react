@@ -5,10 +5,13 @@ import { useParams } from 'react-router-dom';
 
 export default function Movie() {
 
+
     const { id } = useParams()
 
-    const { singleMovie } = useMovieShow({ id });
+    const { singleMovie, handleCommentAdded } = useMovieShow({ id });
     console.log(singleMovie);
+
+
 
 
     switch (singleMovie.state) {
@@ -31,7 +34,7 @@ export default function Movie() {
                         title={singleMovie.movie.title}
                         image={singleMovie.movie.image}
                         content={singleMovie.movie.abstract}
-                        comments={<CommentsSection comments={singleMovie.movie.reviews} />}
+                        comments={<CommentsSection onCommentAdded={handleCommentAdded} comments={singleMovie.movie.reviews} />}
                     />
                 </>
             )

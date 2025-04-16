@@ -2,11 +2,10 @@ import CommentFormUi from "../dumb/CommentForm.ui"
 import { useState } from 'react'
 import { useParams } from "react-router-dom";
 
-export default function CommentForm() {
+export default function CommentForm({ onCommentAdded }) {
 
     const { id } = useParams()
     console.log(id);
-
 
     const [newComment, setNewComment] = useState('')
 
@@ -28,8 +27,7 @@ export default function CommentForm() {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-
-                handleCommentsFetch()
+                onCommentAdded()
             })
             .catch(err => console.error(err))
         setNewComment('')
@@ -38,17 +36,6 @@ export default function CommentForm() {
     function handleChange(value) {
         setNewComment(value)
     }
-
-    function handleCommentsFetch() {
-        fetch(`http://localhost:3000/api/v1/movies/comments/${id}`)
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-            })
-            .catch(err => console.error(err))
-    }
-
-
 
     return (
         <>
