@@ -32,32 +32,38 @@ export default function Jumbo() {
                             {
                                 movies.movies.map(item => (
                                     <JumboUi
-                                        comments={<Comments id={item.id} />}
                                         key={item.id}
                                         image={item.image}
                                         title={item.title}
                                         content={item.abstract}
+                                        comments={
+                                            <>
+                                                <CarouselUi title={'comments'} content={
+                                                    <>
+                                                        {
+
+                                                            <Comments id={item.id} />
+
+                                                        }
+                                                    </>
+                                                } />
+                                            </>
+                                        }
                                     />
                                 ))
                             }
                         </>
                     } />
 
-                    <CarouselUi title={'comments'} content={
+                    {/* <CarouselUi title={'comments'} content={
                         <>
                             {
                                 movies.movies.map(item => (
-                                    <JumboUi
-                                        comments={<Comments id={item.id} />}
-                                        key={item.id}
-                                        image={item.image}
-                                        title={item.title}
-                                        content={item.abstract}
-                                    />
+                                    <Comments id={item.id} />
                                 ))
                             }
                         </>
-                    } />
+                    } /> */}
 
                 </>
 
