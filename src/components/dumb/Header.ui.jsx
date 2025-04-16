@@ -12,10 +12,10 @@ export default function HeaderUi() {
             return (
                 <>
                     <nav
-                        className="navbar navbar-expand-sm navbar-light bg-light"
+                        className="navbar navbar-expand-sm navbar-dark bg-dark"
                     >
                         <div className="container">
-                            <a className="navbar-brand" href="#">Navbar</a>
+                            <a className="navbar-brand" href="#">FILMS</a>
                             <button
                                 className="navbar-toggler d-lg-none"
                                 type="button"
@@ -54,10 +54,10 @@ export default function HeaderUi() {
             return (
                 <>
                     <nav
-                        className="navbar navbar-expand-sm navbar-light bg-light"
+                        className="navbar navbar-expand-sm navbar-dark bg-dark"
                     >
                         <div className="container">
-                            <a className="navbar-brand" href="#">Navbar</a>
+                            <a className="navbar-brand" href="#">FILMS</a>
                             <button
                                 className="navbar-toggler d-lg-none"
                                 type="button"
