@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useAuthContext } from '../contexts/authenticationContext'
-import RegisterUi from '../components/dumb/UserFormPublic.ui'
+import UserFormPublicUi from '../components/dumb/UserFormPublic.ui'
 
 export default function Login() {
 
-    const { fetchRegister } = useAuthContext()
+    const { fetchLogin } = useAuthContext()
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -17,18 +17,19 @@ export default function Login() {
     }
 
     function handleSubmit() {
-        const newUser = {
+        const user = {
             username: username,
             password: password
         }
-        fetchRegister(newUser)
+        fetchLogin(user)
         setUsername('')
         setPassword('')
     }
 
     return (
         <>
-            <RegisterUi
+            <UserFormPublicUi
+                button={'Login'}
                 title={'Login Form'}
                 onSubmit={handleSubmit}
                 onChangeUsername={handleUsername}

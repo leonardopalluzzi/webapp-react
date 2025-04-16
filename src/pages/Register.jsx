@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useAuthContext } from '../contexts/authenticationContext'
-import RegisterUi from '../components/dumb/UserFormPublic.ui'
+import UserFormPublicUi from '../components/dumb/UserFormPublic.ui'
 
 export default function Register() {
 
@@ -28,7 +28,8 @@ export default function Register() {
 
     return (
         <>
-            <RegisterUi
+            <UserFormPublicUi
+                button={'Register'}
                 title={'Register Form'}
                 onSubmit={handleSubmit}
                 onChangeUsername={handleUsername}
