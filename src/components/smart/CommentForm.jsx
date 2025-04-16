@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 export default function CommentForm({ onCommentAdded }) {
 
     const { id } = useParams()
-    console.log(id);
 
     const [newComment, setNewComment] = useState('')
 
@@ -14,7 +13,7 @@ export default function CommentForm({ onCommentAdded }) {
 
         const comment = {
             movieId: Number(id),
-            name: 'pippo',
+            name: '',
             text: newComment,
             vote: 4
         }
