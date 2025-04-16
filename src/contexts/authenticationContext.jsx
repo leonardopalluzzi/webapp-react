@@ -5,7 +5,7 @@ const AuthContext = createContext()
 function AuthProvider({ children }) {
 
     function fetchRegister(newUser) {
-        fetch('http://localhost:3000/api/v1/movies/users', {
+        fetch('http://localhost:3000/api/v1/movies/users/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newUser)
@@ -14,13 +14,13 @@ function AuthProvider({ children }) {
             .then(data => {
                 console.log(data);
             })
-            .cathc(err => {
+            .catch(err => {
                 console.error(err)
             })
     }
 
     function fetchLogin(user) {
-        fetch('http://localhost:3000/api/v1/movies/users', {
+        fetch('http://localhost:3000/api/v1/movies/users/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user)
@@ -37,7 +37,7 @@ function AuthProvider({ children }) {
 
     return (
         <>
-            <AuthContext.Provider value={{ state, fetchRegister, fetchLogin }}>
+            <AuthContext.Provider value={{ fetchRegister, fetchLogin }}>
                 {children}
             </AuthContext.Provider>
         </>
