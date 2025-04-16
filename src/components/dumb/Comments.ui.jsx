@@ -1,4 +1,9 @@
-export default function CommentsUi({ username, text, vote, id }) {
+import useRating from "../../hooks/useRating"
+
+export default function CommentsUi({ username, text, rating }) {
+
+    const { stars } = useRating({ rating })
+
 
     return (
 
@@ -9,7 +14,7 @@ export default function CommentsUi({ username, text, vote, id }) {
                 </div>
                 <div className="card-body">
                     <p>{text}</p>
-                    <span>Vote: {vote}</span>
+                    <span>{stars}</span>
                 </div>
             </div>
 

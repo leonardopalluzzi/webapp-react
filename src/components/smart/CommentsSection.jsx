@@ -14,7 +14,7 @@ export default function CommentsSection({ comments }) {
     } else {
         return (
             <>
-                <ul className="list-unstyled">
+                <ul className="list-unstyled comments_section">
                     <h3>Reviews:</h3>
                     {comments.map(item => (
                         <CommentsSectionUi

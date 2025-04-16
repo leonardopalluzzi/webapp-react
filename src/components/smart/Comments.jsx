@@ -44,7 +44,7 @@ export default function Comments({ id }) {
                             <CommentsUi
                                 username={singleMovie.movie.reviews[index].name}
                                 text={singleMovie.movie.reviews[index].text}
-                                vote={singleMovie.movie.reviews[index].vote}
+                                rating={singleMovie.movie.reviews[index].vote}
                             />
                         </div>
                     }

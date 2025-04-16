@@ -4,14 +4,14 @@ export default function useRating({ rating }) {
     for (let i = 0; i < rating; i++) {
         fullStars.push(
             <>
-                <span><i class="bi bi-star-fill"></i></span>
+                <span><i className="bi bi-star-fill"></i></span>
             </>
         )
     }
     for (let i = rating; i < 5; i++) {
         emptyStars.push(
             <>
-                <span><i class="bi bi-star"></i></span >
+                <span><i className="bi bi-star"></i></span >
             </>
         )
     }

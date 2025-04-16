@@ -61,6 +61,11 @@ main {
     max-width: 100%;
 }
 
+.comments_section {
+    overflow-y: scroll;
+    max-height: 500px;
+}
+
 .comment_card {
     border-bottom: 1px solid grey;
 }
