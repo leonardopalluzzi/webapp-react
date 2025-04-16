@@ -19,9 +19,15 @@ export default function CommentForm({ onCommentAdded }) {
             vote: 4
         }
 
+        const token = localStorage.getItem('token');
+
         fetch(`http://localhost:3000/api/v1/movies/comments`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers:
+            {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
             body: JSON.stringify(comment)
         })
             .then(res => res.json())
