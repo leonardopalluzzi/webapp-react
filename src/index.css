@@ -59,6 +59,7 @@ main {
 .img_card_container {
     overflow: hidden;
     height: 70%;
+    text-align: center;
 }
 
 .list_img {
