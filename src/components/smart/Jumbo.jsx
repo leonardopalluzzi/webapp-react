@@ -27,17 +27,38 @@ export default function Jumbo() {
             //fare map, creare commenti container, pasare id dal map e chiamare hook per fetch show
             return (
                 <>
-                    {
-                        movies.movies.map(item => (
-                            <JumboUi
-                                comments={<Comments id={item.id} />}
-                                key={item.id}
-                                image={item.image}
-                                title={item.title}
-                                content={item.abstract}
-                            />
-                        ))
-                    }
+                    <CarouselUi title={'jumbo'} content={
+                        <>
+                            {
+                                movies.movies.map(item => (
+                                    <JumboUi
+                                        comments={<Comments id={item.id} />}
+                                        key={item.id}
+                                        image={item.image}
+                                        title={item.title}
+                                        content={item.abstract}
+                                    />
+                                ))
+                            }
+                        </>
+                    } />
+
+                    <CarouselUi title={'comments'} content={
+                        <>
+                            {
+                                movies.movies.map(item => (
+                                    <JumboUi
+                                        comments={<Comments id={item.id} />}
+                                        key={item.id}
+                                        image={item.image}
+                                        title={item.title}
+                                        content={item.abstract}
+                                    />
+                                ))
+                            }
+                        </>
+                    } />
+
                 </>
 
 
