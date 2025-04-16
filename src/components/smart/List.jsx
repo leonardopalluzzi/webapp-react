@@ -5,9 +5,6 @@ export default function List() {
 
 
     const { movies } = useMovieContext()
-    console.log(movies);
-
-
 
     switch (movies.state) {
         case 'loading':

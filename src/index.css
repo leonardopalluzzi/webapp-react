@@ -49,10 +49,14 @@ main {
 
 .img_card_container {
     overflow: hidden;
-    height: 70%;
+    height: 90%;
 }
 
 
 .list_img {
+    max-width: 100%;
+}
+
+.details_image {
     max-width: 100%;
 }
