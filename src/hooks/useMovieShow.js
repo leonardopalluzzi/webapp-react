@@ -12,7 +12,6 @@ export default function useMovieShow({ id }) {
         fetch(showEndpoint)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 setSingleMovie({
                     state: 'success',
                     movie: data
@@ -27,7 +26,6 @@ export default function useMovieShow({ id }) {
                 })
             })
     }, [])
-    console.log(id);
 
 
     return { singleMovie }

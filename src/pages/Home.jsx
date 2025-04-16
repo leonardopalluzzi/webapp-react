@@ -1,4 +1,5 @@
 import Jumbo from "../components/smart/Jumbo"
+import List from "../components/smart/List"
 
 
 export default function Home() {
@@ -9,8 +10,9 @@ export default function Home() {
         <>
 
             <Jumbo />
-            <main>
 
+            <main>
+                <List />
             </main>
 
         </>

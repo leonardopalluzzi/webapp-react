@@ -4,10 +4,7 @@ import { useState, useEffect } from 'react'
 
 export default function Comments({ id }) {
 
-    console.log(id);
-
     const { singleMovie } = useMovieShow({ id })
-    console.log(singleMovie);
 
     const [index, setIndex] = useState(1)
 
