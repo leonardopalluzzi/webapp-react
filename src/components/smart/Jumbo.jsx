@@ -27,7 +27,7 @@ export default function Jumbo() {
             //fare map, creare commenti container, pasare id dal map e chiamare hook per fetch show
             return (
                 <>
-                    <CarouselUi title={'jumbo'} content={
+                    <CarouselUi content={
                         <>
                             {
                                 movies.movies.map(item => (
@@ -38,7 +38,7 @@ export default function Jumbo() {
                                         content={item.abstract}
                                         comments={
                                             <>
-                                                <CarouselUi title={'comments'} content={
+                                                <CarouselUi content={
                                                     <>
                                                         {
 

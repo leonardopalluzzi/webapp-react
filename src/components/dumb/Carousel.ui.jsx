@@ -1,8 +1,27 @@
-export default function CarouselUi({ content, title }) {
+import { useRef } from "react";
+
+export default function CarouselUi({ content }) {
+
+    const scrollRef = useRef();
+
+
+    function scroll(direction) {
+        const { current } = scrollRef;
+        const scrollAmount = 1000;
+
+        if (direction === 'left') {
+            current.scrollLeft -= scrollAmount;
+        } else {
+            current.scrollLeft += scrollAmount;
+        }
+    }
+
+
     return (
         <>
-            <h1>carousel</h1>
-            <div>{content}</div>
+            <div className="carousel_container">
+                {content}
+            </div>
         </>
     )
 }

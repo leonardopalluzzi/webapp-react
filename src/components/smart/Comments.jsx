@@ -29,7 +29,6 @@ export default function Comments({ id }) {
                     {
                         singleMovie.movie.reviews.map(item => (
                             <CommentsUi
-                                id={id}
                                 username={item.name}
                                 text={item.text}
                                 vote={item.vote}

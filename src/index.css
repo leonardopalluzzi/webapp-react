@@ -2,19 +2,40 @@
 @import 'bootstrap-icons';
 
 
-.jumbo {
-    position: relative;
+.carousel_container {
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
 }
 
-.jumbo_img {
+
+.jumbo {
+    position: relative;
+    max-height: 80vh;
     width: 100%;
-    aspect-ratio: 1;
+}
+
+
+.jumbo_img_container {
+    overflow: hidden;
+    max-height: 100%;
+
+    .jumbo_img {
+        width: 100vw;
+    }
 
 }
 
 .jumbo_info {
     position: absolute;
-    top: 0;
+    bottom: 20%;
+    right: 10%;
     z-index: 10;
     color: red;
+}
+
+.card_comments {
+    padding: 2rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
 }
