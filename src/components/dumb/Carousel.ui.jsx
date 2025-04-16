@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-export default function CarouselUi({ content }) {
+export default function CarouselUi({ content, length }) {
 
     const scrollRef = useRef();
 
@@ -15,6 +15,10 @@ export default function CarouselUi({ content }) {
             current.scrollLeft += scrollAmount;
         }
     }
+
+    const timer = setInterval(() => {
+
+    })
 
 
     return (

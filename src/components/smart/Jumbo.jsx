@@ -2,11 +2,17 @@ import JumboUi from "../dumb/Jumbo.ui.jsx";
 import Comments from "./Comments.jsx";
 import CarouselUi from "../dumb/Carousel.ui.jsx";
 import { useMovieContext } from '../../contexts/movieContext.jsx';
+import { useState } from 'react'
 
 export default function Jumbo() {
 
 
     const { movies } = useMovieContext()
+    const [currentId, setCurrentId] = useState(1)
+
+    function handleId(itemId) {
+        setCurrentId(itemId)
+    }
 
 
     switch (movies.state) {
@@ -27,18 +33,19 @@ export default function Jumbo() {
             //fare map, creare commenti container, pasare id dal map e chiamare hook per fetch show
             return (
                 <>
-                    <CarouselUi content={
+                    <CarouselUi length={movies.movies.length} content={
                         <>
                             {
                                 movies.movies.map(item => (
                                     <JumboUi
+                                        onIdChange={() => andleId(item.id)}
                                         key={item.id}
                                         image={item.image}
                                         title={item.title}
                                         content={item.abstract}
                                         comments={
                                             <>
-                                                <CarouselUi content={
+                                                {/* <CarouselUi content={
                                                     <>
                                                         {
 
@@ -46,7 +53,7 @@ export default function Jumbo() {
 
                                                         }
                                                     </>
-                                                } />
+                                                } /> */}
                                             </>
                                         }
                                     />
@@ -55,15 +62,18 @@ export default function Jumbo() {
                         </>
                     } />
 
-                    {/* <CarouselUi title={'comments'} content={
+                    <CarouselUi title={'comments'} content={
                         <>
-                            {
-                                movies.movies.map(item => (
-                                    <Comments id={item.id} />
-                                ))
-                            }
+                            <div className="jumbo_info">
+                                {
+
+                                    <Comments id={currentId} />
+
+                                }
+                            </div>
+
                         </>
-                    } /> */}
+                    } />
 
                 </>
 
