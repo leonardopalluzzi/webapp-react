@@ -4,6 +4,7 @@ import DefaultLayout from "./layouts/DefaultLayout"
 import Home from "./pages/Home"
 import Movie from "./pages/movie"
 import Register from "./pages/Register"
+import Login from "./pages/Login"
 import { AuthProvider } from "./contexts/authenticationContext"
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route Component={DefaultLayout}>
+                <Route path="/login" Component={Login} />
                 <Route path="/register" Component={Register} />
                 <Route path="/" Component={Home} />
                 <Route path="/:id/movie" Component={Movie} />

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useAuthContext } from '../contexts/authenticationContext'
+import RegisterUi from '../components/dumb/UserFormPublic.ui'
 
 export default function Register() {
 
@@ -27,16 +28,14 @@ export default function Register() {
 
     return (
         <>
-            <div className="container">
-                <h1>Register page</h1>
-
-                <form onSubmit={(e) => { e.preventDefault(); handleSubmit() }} method="POST">
-                    <input value={username} onChange={(e) => handleUsername(e.target.value)} className="form-control" type="text" placeholder="username" />
-                    <input value={password} onChange={(e) => handlePassword(e.target.value)} className="form-control" type="text" placeholder="password" />
-                    <button button type="submit" className="btn btn-primary" > Register</button>
-                </form>
-            </div >
-
+            <RegisterUi
+                title={'Register Form'}
+                onSubmit={handleSubmit}
+                onChangeUsername={handleUsername}
+                onChangePassword={handlePassword}
+                username={username}
+                password={password}
+            />
         </>
     )
 }
