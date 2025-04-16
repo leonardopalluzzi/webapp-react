@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
 export default function HeaderUi() {
     return (
@@ -28,6 +28,11 @@ export default function HeaderUi() {
                                 <NavLink className="nav-link active" to='/film'>Film</NavLink>
                             </li>
                         </ul>
+                    </div>
+                    <div className="users">
+                        <Link to={'/register'}>
+                            <button className='btn btn-primary'>Register</button>
+                        </Link>
                     </div>
                 </div>
             </nav>
