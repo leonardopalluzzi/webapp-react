@@ -1,5 +1,6 @@
 import useMovieShow from "../../hooks/useMovieShow";
 import CommentsUi from "../dumb/Comments.ui";
+import { useState, useEffect } from 'react'
 
 export default function Comments({ id }) {
 
@@ -7,6 +8,21 @@ export default function Comments({ id }) {
 
     const { singleMovie } = useMovieShow({ id })
     console.log(singleMovie);
+
+    const [index, setIndex] = useState(1)
+
+    useEffect(() => {
+
+        if (singleMovie.state !== 'success') {
+            return;
+        }
+
+        const timer = setInterval(() => {
+            setIndex((prevIndex) => (prevIndex + 1) % singleMovie.movie.reviews.length)
+        }, 4000)
+
+        return () => clearInterval(timer)
+    }, [singleMovie])
 
 
     switch (singleMovie.state) {
@@ -27,14 +43,13 @@ export default function Comments({ id }) {
             return (
                 <>
                     {
-                        singleMovie.movie.reviews.map(item => (
+                        <div className="card_comments">
                             <CommentsUi
-                                id={id}
-                                username={item.name}
-                                text={item.text}
-                                vote={item.vote}
+                                username={singleMovie.movie.reviews[index].name}
+                                text={singleMovie.movie.reviews[index].text}
+                                vote={singleMovie.movie.reviews[index].vote}
                             />
-                        ))
+                        </div>
                     }
 
                 </>

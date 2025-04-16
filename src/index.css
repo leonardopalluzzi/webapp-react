@@ -2,22 +2,16 @@
 @import 'bootstrap-icons';
 
 
-.carousel_container {
-    display: flex;
-    flex-direction: row;
-    overflow-x: scroll;
-}
-
-
 .jumbo {
     position: relative;
     max-height: 80vh;
     width: 100%;
+    overflow: hidden;
 }
 
 
 .jumbo_img_container {
-    overflow: hidden;
+
     max-height: 100%;
 
     .jumbo_img {
@@ -28,14 +22,23 @@
 
 .jumbo_info {
     position: absolute;
-    bottom: 20%;
-    right: 10%;
-    z-index: 10;
-    color: red;
+    bottom: 30%;
+    left: 5%;
+    color: white;
+    font-size: 1.5rem;
+    max-width: 40%;
 }
 
 .card_comments {
-    padding: 2rem;
+    padding: 3rem;
+    width: 40%;
     border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.185);
     backdrop-filter: blur(10px);
+    position: absolute;
+    bottom: 30%;
+    right: 5%;
+    z-index: 10;
+    color: white;
+    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.377);
 }
