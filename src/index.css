@@ -60,3 +60,7 @@ main {
 .details_image {
     max-width: 100%;
 }
+
+.comment_card {
+    border-bottom: 1px solid grey;
+}

@@ -2,6 +2,9 @@ import CommentsSectionUi from "../dumb/CommentsSection.ui"
 import CommentForm from "./CommentForm"
 
 export default function CommentsSection({ comments }) {
+
+
+
     if (comments.length == 0) {
         return (
             <>
