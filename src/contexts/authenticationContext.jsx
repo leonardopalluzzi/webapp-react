@@ -52,7 +52,7 @@ function AuthProvider({ children }) {
 
     return (
         <>
-            <AuthContext.Provider value={{ loginEsit, signUpEsit, userLogged, fetchRegister, fetchLogin, logout }}>
+            <AuthContext.Provider value={{ loginEsit, signUpEsit, userLogged, setUserLogged, fetchRegister, fetchLogin, logout }}>
                 {children}
             </AuthContext.Provider>
         </>

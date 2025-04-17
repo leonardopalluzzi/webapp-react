@@ -3,7 +3,13 @@ import { useAuthContext } from '../../contexts/authenticationContext'
 import { useNavigate } from 'react-router-dom'
 
 export default function HeaderUi() {
-    const { userLogged, logout } = useAuthContext()
+    const { userLogged, logout, setUserLogged } = useAuthContext()
+
+    const token = localStorage.getItem('token')
+
+    if (token) {
+        setUserLogged(true)
+    }
 
     const navigate = useNavigate()
 
