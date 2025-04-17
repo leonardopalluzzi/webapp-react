@@ -15,7 +15,8 @@ export default function CommentForm({ onCommentAdded }) {
 
     const { id } = useParams()
 
-    const [newComment, setNewComment] = useState('')
+    const [newComment, setNewComment] = useState('');
+    const [userRating, setUserRating] = useState(0);
 
     function handleSubmit() {
         console.log('submit');
@@ -30,7 +31,7 @@ export default function CommentForm({ onCommentAdded }) {
             movieId: Number(id),
             name: '',
             text: newComment,
-            vote: 4
+            vote: userRating
         }
 
         console.log(comment.text.length);
@@ -78,12 +79,17 @@ export default function CommentForm({ onCommentAdded }) {
         setNewComment(value)
     }
 
+    function handleOnCLickRating(index) {
+        setUserRating(index + 1)
+    }
+
     return (
         <>
             <div className={`${visible == true ? "d-block" : 'd-none'} popup_container`}>
                 <RegisterPopUpUi setVisible={setVisible} />
             </div>
             <CommentFormUi
+                onClickRating={handleOnCLickRating}
                 submitEsit={sendComment}
                 onSubmit={handleSubmit}
                 onChange={handleChange}
