@@ -3,11 +3,11 @@ import { useAuthContext } from '../../contexts/authenticationContext'
 import { useNavigate } from 'react-router-dom'
 
 export default function HeaderUi() {
-    const { state, logout } = useAuthContext()
+    const { userLogged, logout } = useAuthContext()
 
     const navigate = useNavigate()
 
-    switch (state) {
+    switch (userLogged) {
         case false:
             return (
                 <>

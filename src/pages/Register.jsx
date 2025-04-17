@@ -4,7 +4,7 @@ import UserFormPublicUi from '../components/dumb/UserFormPublic.ui'
 
 export default function Register() {
 
-    const { fetchRegister } = useAuthContext()
+    const { fetchRegister, signUpEsit } = useAuthContext()
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -29,6 +29,7 @@ export default function Register() {
     return (
         <>
             <UserFormPublicUi
+                esit={signUpEsit}
                 button={'Register'}
                 title={'Register Form'}
                 onSubmit={handleSubmit}
