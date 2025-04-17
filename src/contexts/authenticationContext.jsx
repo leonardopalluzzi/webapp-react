@@ -50,9 +50,15 @@ function AuthProvider({ children }) {
         setUserLogged(false)
     }
 
+    function checkIfLoggedOnRefresh(token) {
+        if (token) {
+            setUserLogged(true)
+        }
+    }
+
     return (
         <>
-            <AuthContext.Provider value={{ loginEsit, signUpEsit, userLogged, setUserLogged, fetchRegister, fetchLogin, logout }}>
+            <AuthContext.Provider value={{ loginEsit, signUpEsit, userLogged, checkIfLoggedOnRefresh, fetchRegister, fetchLogin, logout }}>
                 {children}
             </AuthContext.Provider>
         </>
