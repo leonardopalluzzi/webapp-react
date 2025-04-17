@@ -5,9 +5,7 @@ import { useNavigate } from 'react-router-dom'
 export default function HeaderUi() {
     const { userLogged, logout, checkIfLoggedOnRefresh } = useAuthContext()
 
-    const token = localStorage.getItem('token')
-
-    checkIfLoggedOnRefresh(token)
+    checkIfLoggedOnRefresh()
 
     const navigate = useNavigate()
 

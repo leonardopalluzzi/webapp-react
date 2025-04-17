@@ -50,7 +50,8 @@ function AuthProvider({ children }) {
         setUserLogged(false)
     }
 
-    function checkIfLoggedOnRefresh(token) {
+    function checkIfLoggedOnRefresh() {
+        const token = localStorage.getItem('token')
         if (token) {
             setUserLogged(true)
         }
