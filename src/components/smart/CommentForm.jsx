@@ -23,6 +23,7 @@ export default function CommentForm({ onCommentAdded }) {
         if (userLogged == false) {
             console.log('not logged');
             setVisible(true)
+            return
         }
 
         const comment = {
