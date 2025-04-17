@@ -1,8 +1,13 @@
 import CommentFormUi from "../dumb/CommentForm.ui"
 import { useState } from 'react'
 import { useParams } from "react-router-dom";
+import { useAuthContext } from "../../contexts/authenticationContext";
+import RegisterPopUp from "../dumb/RegisterPopUp.ui";
 
 export default function CommentForm({ onCommentAdded }) {
+
+    const { userLogged } = useAuthContext()
+    const [visible, setVisible] = useState(false)
 
     const { id } = useParams()
 
@@ -10,6 +15,11 @@ export default function CommentForm({ onCommentAdded }) {
 
     function handleSubmit() {
         console.log('submit');
+
+        if (userLogged == false) {
+            console.log('not logged');
+            setVisible(true)
+        }
 
         const comment = {
             movieId: Number(id),
@@ -44,6 +54,9 @@ export default function CommentForm({ onCommentAdded }) {
 
     return (
         <>
+            <div className={`${visible == true ? "d-block" : 'd-none'} popup_container`}>
+                <RegisterPopUp setVisible={setVisible} />
+            </div>
             <CommentFormUi
                 onSubmit={handleSubmit}
                 onChange={handleChange}
