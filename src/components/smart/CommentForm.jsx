@@ -2,7 +2,7 @@ import CommentFormUi from "../dumb/CommentForm.ui"
 import { useState } from 'react'
 import { useParams } from "react-router-dom";
 import { useAuthContext } from "../../contexts/authenticationContext";
-import RegisterPopUp from "../dumb/RegisterPopUp.ui";
+import RegisterPopUpUi from "../dumb/RegisterPopUp.ui";
 
 export default function CommentForm({ onCommentAdded }) {
 
@@ -55,7 +55,7 @@ export default function CommentForm({ onCommentAdded }) {
     return (
         <>
             <div className={`${visible == true ? "d-block" : 'd-none'} popup_container`}>
-                <RegisterPopUp setVisible={setVisible} />
+                <RegisterPopUpUi setVisible={setVisible} />
             </div>
             <CommentFormUi
                 onSubmit={handleSubmit}
