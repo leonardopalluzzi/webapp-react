@@ -1,5 +1,6 @@
 import { useMovieContext } from '../../contexts/movieContext'
 import ListUi from '../dumb/List.ui'
+import Error from '../../pages/Error'
 
 export default function List() {
 
@@ -16,7 +17,7 @@ export default function List() {
         case 'error':
             return (
                 <>
-                    <h1>error</h1>
+                    <Error state={movies.state} message={movies.message} />
                 </>
             )
         case 'success':

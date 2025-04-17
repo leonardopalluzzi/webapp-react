@@ -6,6 +6,7 @@ import Movie from "./pages/movie"
 import Register from "./pages/Register"
 import Login from "./pages/Login"
 import { AuthProvider } from "./contexts/authenticationContext"
+import NotFound from "./pages/NotFound"
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
                 <Route path="/register" Component={Register} />
                 <Route path="/" Component={Home} />
                 <Route path="/:id/movie" Component={Movie} />
+                <Route path="*" Component={NotFound} />
               </Route>
             </Routes>
           </BrowserRouter>

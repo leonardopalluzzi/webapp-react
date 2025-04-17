@@ -2,6 +2,7 @@ import JumboUi from "../dumb/Jumbo.ui.jsx";
 import Comments from "./Comments.jsx";
 import { useMovieContext } from '../../contexts/movieContext.jsx';
 import { useState, useEffect } from 'react'
+import Error from "../../pages/Error.jsx";
 
 export default function Jumbo() {
 
@@ -33,8 +34,7 @@ export default function Jumbo() {
         case 'error':
             return (
                 <>
-                    <h1>{movies.state}</h1>
-                    <span>{movies.message}</span>
+                    <Error state={movies.state} message={movies.message} />
                 </>
             )
         case 'success':

@@ -119,3 +119,11 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+.container_not_found {
+    height: 100vh;
+
+    h1 {
+        font-size: 4rem;
+    }
+}

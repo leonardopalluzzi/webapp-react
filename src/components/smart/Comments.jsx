@@ -1,6 +1,7 @@
 import useMovieShow from "../../hooks/useMovieShow";
 import CommentsUi from "../dumb/Comments.ui";
 import { useState, useEffect } from 'react'
+import Error from "../../pages/Error";
 
 export default function Comments({ id }) {
 
@@ -32,8 +33,7 @@ export default function Comments({ id }) {
         case 'error':
             return (
                 <>
-                    <h1>{singleMovie.state}</h1>
-                    <span>{singleMovie.message}</span>
+                    <Error state={movies.state} message={movies.message} />
                 </>
             )
         case 'success':
