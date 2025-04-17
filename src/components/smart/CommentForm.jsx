@@ -16,7 +16,7 @@ export default function CommentForm({ onCommentAdded }) {
     const { id } = useParams()
 
     const [newComment, setNewComment] = useState('');
-    const [userRating, setUserRating] = useState(1);
+    const [userRating, setUserRating] = useState(0);
 
     const [starsNumber, setStarsNumber] = useState(0)
 
@@ -89,43 +89,22 @@ export default function CommentForm({ onCommentAdded }) {
 
     function renderStars(index) {
 
-        let starValue = 0
-
-
-
-        const stars = Array.from({ length: index }).map((item, i) => {
-            { starValue++ }
-            const myId = starValue
-            return (
-                <>
-                    <a onMouseEnter={() => setStarsNumber(myId)} onMouseLeave={() => setStarsNumber(0)} onClick={() => setUserRating(i + 1)} className="btn btn-transparent text-white">
-                        <i class="bi bi-star-fill"></i>
-
-                    </a>
-                </>
-            )
-
-
-        })
-
-        const emptyStars = Array.from({ length: 5 - index }).map((item, i) => {
-            { starValue++ }
-            const myId = starValue
-            return (
-                <>
-                    <a onMouseEnter={() => setStarsNumber(myId)} onMouseLeave={() => setStarsNumber(0)} className="btn btn-transparent text-white">
-                        <i class="bi bi-star"></i>
-                    </a>
-                </>
-            )
-
-        })
-
         return (
             <>
-                {stars}
-                {emptyStars}
-
+                {Array.from({ length: 5 }).map((_, i) => {
+                    const isFilled = i < (starsNumber || userRating);
+                    return (
+                        <a
+                            key={i}
+                            onMouseEnter={() => setStarsNumber(i + 1)}
+                            onMouseLeave={() => setStarsNumber(0)}
+                            onClick={() => setUserRating(i + 1)}
+                            className="btn btn-transparent text-white"
+                        >
+                            <i className={isFilled ? "bi bi-star-fill" : "bi bi-star"}></i>
+                        </a>
+                    )
+                })}
             </>
         )
     }
