@@ -127,3 +127,23 @@ main {
         font-size: 4rem;
     }
 }
+
+.container_form {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.public_form {
+    margin: auto;
+    height: 30vh;
+
+    input {
+        margin-bottom: 2rem;
+    }
+}
