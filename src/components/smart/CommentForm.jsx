@@ -18,6 +18,8 @@ export default function CommentForm({ onCommentAdded }) {
     const [newComment, setNewComment] = useState('');
     const [userRating, setUserRating] = useState(0);
 
+    const [onMouseHover, setOnMouseOver] = useState(false)
+
     function handleSubmit() {
         console.log('submit');
 
@@ -79,6 +81,21 @@ export default function CommentForm({ onCommentAdded }) {
         setNewComment(value)
     }
 
+    function generateStars() {
+        const selectRating = []
+        for (let i = 0; i < 5; i++) {
+            selectRating.push(
+                <>
+                    <a onClick={() => onClickRating(i)} className="btn btn-transparent text-white">
+                        <i i class="bi bi-star"></i>
+                    </a>
+                </>
+            )
+        }
+
+        return selectRating
+    }
+
     function handleOnCLickRating(index) {
         setUserRating(index + 1)
     }
@@ -89,6 +106,9 @@ export default function CommentForm({ onCommentAdded }) {
                 <RegisterPopUpUi setVisible={setVisible} />
             </div>
             <CommentFormUi
+                setOnMouseOver={setOnMouseOver}
+                onMouseHover={onMouseHover}
+                generateStars={generateStars}
                 onClickRating={handleOnCLickRating}
                 submitEsit={sendComment}
                 onSubmit={handleSubmit}
