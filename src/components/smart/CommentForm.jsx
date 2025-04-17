@@ -92,15 +92,18 @@ export default function CommentForm({ onCommentAdded }) {
         return (
             <>
                 {Array.from({ length: 5 }).map((_, i) => {
-                    const isFilled = i < (starsNumber || userRating);
+                    const isFilled = i < (starsNumber || userRating); // gives true if current index is < of hte clicked or onOver star
+                    console.log(isFilled);
+
                     return (
                         <a
                             key={i}
-                            onMouseEnter={() => setStarsNumber(i + 1)}
-                            onMouseLeave={() => setStarsNumber(0)}
-                            onClick={() => setUserRating(i + 1)}
+                            onMouseEnter={() => setStarsNumber(i + 1)} //set the number of hte stars on over state
+                            onMouseLeave={() => setStarsNumber(0)} //reset the stars on mosue leave
+                            onClick={() => setUserRating(i + 1)} //set the number of stars on click and keeps it thanks to the condition
                             className="btn btn-transparent text-white"
                         >
+                            {/* if it is true sets the star to fill, else on empty  */}
                             <i className={isFilled ? "bi bi-star-fill" : "bi bi-star"}></i>
                         </a>
                     )
