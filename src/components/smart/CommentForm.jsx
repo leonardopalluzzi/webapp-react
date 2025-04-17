@@ -32,13 +32,19 @@ export default function CommentForm({ onCommentAdded }) {
             vote: 4
         }
 
-        console.log(comment);
+        console.log(comment.text.length);
 
 
         if (comment.text == '') {
             setSendComment({
                 state: 'error',
                 message: 'Please fill the required fields'
+            })
+            return
+        } else if (comment.text.length < 5 || comment.text.length > 300) {
+            setSendComment({
+                state: 'error',
+                message: 'Your review should be a minimum of 5 characters and a maximum of 300'
             })
             return
         }
