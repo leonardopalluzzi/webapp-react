@@ -16,9 +16,7 @@ export default function CommentForm({ onCommentAdded }) {
     const { id } = useParams()
 
     const [newComment, setNewComment] = useState('');
-    const [userRating, setUserRating] = useState(0);
-
-    const [onMouseHover, setOnMouseOver] = useState(false)
+    const [userRating, setUserRating] = useState(1);
 
     const [starsNumber, setStarsNumber] = useState(0)
 
@@ -56,6 +54,8 @@ export default function CommentForm({ onCommentAdded }) {
         }
 
         const token = localStorage.getItem('token');
+        console.log(comment);
+
 
         fetch(`http://localhost:3000/api/v1/movies/comments`, {
             method: 'POST',
@@ -89,24 +89,45 @@ export default function CommentForm({ onCommentAdded }) {
 
     function renderStars(index) {
 
-        const stars = Array.from({ length: index }).map(item => (
-            <>
-                <a onMouseEnter={() => { setOnMouseOver(true); onClickRating(i) }} onMouseLeave={() => setOnMouseOver(false)} onClick={() => onClickRating(i)} className="btn btn-transparent text-white">
-                    <i class="bi bi-star-fill"></i>
-                </a>
-            </>
-        ))
+        let starValue = 0
 
-        const emptyStars = Array.from({ length: 5 - index }).map(item => {
+
+
+        const stars = Array.from({ length: index }).map((item, i) => {
+            { starValue++ }
+            const myId = starValue
             return (
                 <>
-                    <a onMouseEnter={() => { setOnMouseOver(true); onClickRating(i) }} onMouseLeave={() => setOnMouseOver(false)} onClick={() => onClickRating(i)} className="btn btn-transparent text-white">
+                    <a onMouseEnter={() => setStarsNumber(myId)} onMouseLeave={() => setStarsNumber(0)} onClick={() => setUserRating(i + 1)} className="btn btn-transparent text-white">
+                        <i class="bi bi-star-fill"></i>
+
+                    </a>
+                </>
+            )
+
+
+        })
+
+        const emptyStars = Array.from({ length: 5 - index }).map((item, i) => {
+            { starValue++ }
+            const myId = starValue
+            return (
+                <>
+                    <a onMouseEnter={() => setStarsNumber(myId)} onMouseLeave={() => setStarsNumber(0)} className="btn btn-transparent text-white">
                         <i class="bi bi-star"></i>
                     </a>
                 </>
             )
 
         })
+
+        return (
+            <>
+                {stars}
+                {emptyStars}
+
+            </>
+        )
     }
 
     return (
@@ -115,11 +136,8 @@ export default function CommentForm({ onCommentAdded }) {
                 <RegisterPopUpUi setVisible={setVisible} />
             </div>
             <CommentFormUi
-                setStarsNumber={setStarsNumber}
+                renderStars={renderStars}
                 starsNumber={starsNumber}
-                setOnMouseOver={setOnMouseOver}
-                onMouseHover={onMouseHover}
-                onClickRating={handleOnCLickRating}
                 submitEsit={sendComment}
                 onSubmit={handleSubmit}
                 onChange={handleChange}
