@@ -20,6 +20,8 @@ export default function CommentForm({ onCommentAdded }) {
 
     const [onMouseHover, setOnMouseOver] = useState(false)
 
+    const [starsNumber, setStarsNumber] = useState(0)
+
     function handleSubmit() {
         console.log('submit');
 
@@ -81,23 +83,30 @@ export default function CommentForm({ onCommentAdded }) {
         setNewComment(value)
     }
 
-    function generateStars() {
-        const selectRating = []
-        for (let i = 0; i < 5; i++) {
-            selectRating.push(
+    function handleOnCLickRating(index) {
+        setUserRating(index + 1)
+    }
+
+    function renderStars(index) {
+
+        const stars = Array.from({ length: index }).map(item => (
+            <>
+                <a onMouseEnter={() => { setOnMouseOver(true); onClickRating(i) }} onMouseLeave={() => setOnMouseOver(false)} onClick={() => onClickRating(i)} className="btn btn-transparent text-white">
+                    <i class="bi bi-star-fill"></i>
+                </a>
+            </>
+        ))
+
+        const emptyStars = Array.from({ length: 5 - index }).map(item => {
+            return (
                 <>
-                    <a onClick={() => onClickRating(i)} className="btn btn-transparent text-white">
-                        <i i class="bi bi-star"></i>
+                    <a onMouseEnter={() => { setOnMouseOver(true); onClickRating(i) }} onMouseLeave={() => setOnMouseOver(false)} onClick={() => onClickRating(i)} className="btn btn-transparent text-white">
+                        <i class="bi bi-star"></i>
                     </a>
                 </>
             )
-        }
 
-        return selectRating
-    }
-
-    function handleOnCLickRating(index) {
-        setUserRating(index + 1)
+        })
     }
 
     return (
@@ -106,9 +115,10 @@ export default function CommentForm({ onCommentAdded }) {
                 <RegisterPopUpUi setVisible={setVisible} />
             </div>
             <CommentFormUi
+                setStarsNumber={setStarsNumber}
+                starsNumber={starsNumber}
                 setOnMouseOver={setOnMouseOver}
                 onMouseHover={onMouseHover}
-                generateStars={generateStars}
                 onClickRating={handleOnCLickRating}
                 submitEsit={sendComment}
                 onSubmit={handleSubmit}
