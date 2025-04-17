@@ -8,6 +8,10 @@ export default function CommentForm({ onCommentAdded }) {
 
     const { userLogged } = useAuthContext()
     const [visible, setVisible] = useState(false)
+    const [sendComment, setSendComment] = useState({
+        state: '',
+        message: ''
+    })
 
     const { id } = useParams()
 
@@ -28,6 +32,17 @@ export default function CommentForm({ onCommentAdded }) {
             vote: 4
         }
 
+        console.log(comment);
+
+
+        if (comment.text == '') {
+            setSendComment({
+                state: 'error',
+                message: 'Please fill the required fields'
+            })
+            return
+        }
+
         const token = localStorage.getItem('token');
 
         fetch(`http://localhost:3000/api/v1/movies/comments`, {
@@ -43,6 +58,10 @@ export default function CommentForm({ onCommentAdded }) {
             .then(data => {
                 console.log(data);
                 onCommentAdded()
+                setSendComment({
+                    state: 'success',
+                    message: 'Review posted correctly'
+                })
             })
             .catch(err => console.error(err))
         setNewComment('')
@@ -58,6 +77,7 @@ export default function CommentForm({ onCommentAdded }) {
                 <RegisterPopUpUi setVisible={setVisible} />
             </div>
             <CommentFormUi
+                submitEsit={sendComment}
                 onSubmit={handleSubmit}
                 onChange={handleChange}
                 newComment={newComment}
