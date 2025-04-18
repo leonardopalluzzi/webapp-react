@@ -19,7 +19,8 @@ export default function Register() {
     function handleSubmit() {
         const newUser = {
             username: username,
-            password: password
+            password: password,
+            isAdmin: 0
         }
         fetchRegister(newUser)
         setUsername('')
