@@ -63,7 +63,7 @@ function AuthProvider({ children }) {
     }
 
     function logout() {
-        localStorage.removeItem('token')
+        localStorage.removeItem('user')
         setUserLogged(false)
     }
 
