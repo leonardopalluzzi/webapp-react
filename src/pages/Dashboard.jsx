@@ -1,4 +1,3 @@
-
 import MoviesTable from "../components/smart/MoviesTable"
 import { useAuthContext } from "../contexts/authenticationContext"
 
@@ -12,7 +11,6 @@ export default function Dashboard() {
         case 1:
             return (
                 <>
-                    <h1>dashboard</h1>
                     <MoviesTable />
                 </>
             )
