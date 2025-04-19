@@ -16,7 +16,7 @@ export default function RegisterUi({ onSubmit, onChangeUsername, onChangePasswor
                     <div className="card-body">
                         <form className="public_form" onSubmit={(e) => { e.preventDefault(); onSubmit() }} method="POST">
                             <input value={username} onChange={(e) => onChangeUsername(e.target.value)} className="form-control" type="text" placeholder="username" />
-                            <input value={password} onChange={(e) => onChangePassword(e.target.value)} className="form-control" type="text" placeholder="password" />
+                            <input value={password} onChange={(e) => onChangePassword(e.target.value)} className="form-control" type="password" placeholder="password" />
                             <button type="submit" className="btn btn-primary" >{button}</button>
                         </form>
                         <div className={esit.state == 'success' ? `text-success` : 'text-danger'}>
