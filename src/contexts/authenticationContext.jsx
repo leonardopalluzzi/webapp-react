@@ -9,7 +9,9 @@ function AuthProvider({ children }) {
         state: 'success',
         message: ''
     })
-    const [loginEsit, setLoginEsit] = useState(false)
+    const [loginEsit, setLoginEsit] = useState({
+        state: 'loading'
+    })
 
     function fetchRegister(newUser) {
         fetch('http://localhost:3000/api/v1/movies/users/register', {
@@ -38,7 +40,10 @@ function AuthProvider({ children }) {
                 console.log(data);
                 localStorage.setItem('token', data.token);
                 setUserLogged(true)
-                setLoginEsit(data)
+                setLoginEsit({
+                    state: 'success',
+                    role: data.role
+                })
             })
             .catch(err => {
                 console.error(err)

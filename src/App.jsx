@@ -7,6 +7,7 @@ import Register from "./pages/Register"
 import Login from "./pages/Login"
 import { AuthProvider } from "./contexts/authenticationContext"
 import NotFound from "./pages/NotFound"
+import Dashboard from "./pages/Dashboard"
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
                 <Route path="/register" Component={Register} />
                 <Route path="/" Component={Home} />
                 <Route path="/:id/movie" Component={Movie} />
+                <Route path="/admin" Component={Dashboard} />
                 <Route path="*" Component={NotFound} />
               </Route>
             </Routes>
