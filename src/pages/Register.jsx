@@ -30,6 +30,7 @@ export default function Register() {
     return (
         <>
             <UserFormPublicUi
+                redirect={'/login'}
                 esit={signUpEsit}
                 button={'Register'}
                 title={'Register Form'}

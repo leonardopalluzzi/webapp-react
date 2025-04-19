@@ -5,6 +5,7 @@ import UserFormPublicUi from '../components/dumb/UserFormPublic.ui'
 export default function Login() {
 
     const { fetchLogin, loginEsit } = useAuthContext()
+    const redirect = '/'
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -29,6 +30,7 @@ export default function Login() {
     return (
         <>
             <UserFormPublicUi
+                redirect={redirect}
                 esit={loginEsit}
                 button={'Login'}
                 title={'Login Form'}
