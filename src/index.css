@@ -104,6 +104,8 @@ main {
 
 /* #endregion movie  */
 
+/* #region authentication  */
+
 .popup_container {
     position: absolute;
     top: 0;
@@ -148,10 +150,12 @@ main {
     }
 }
 
+/* #endregion authentication  */
 
-
-
+/* #region dashboard  */
 
 .dashboard_img {
     max-width: 100%;
 }
+
+/* #endregion dashboard  */
