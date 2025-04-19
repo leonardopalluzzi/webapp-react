@@ -9,14 +9,14 @@ export default function Dashboard() {
     console.log(loginEsit);
 
     switch (loginEsit.role) {
-        case true:
+        case 1:
             return (
                 <>
                     <h1>dashboard</h1>
                     <MoviesTable />
                 </>
             )
-        case false:
+        case 0:
             return (
                 <>
                     <h1>non sei admin</h1>

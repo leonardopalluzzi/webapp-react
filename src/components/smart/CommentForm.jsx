@@ -53,7 +53,7 @@ export default function CommentForm({ onCommentAdded }) {
             return
         }
 
-        const token = localStorage.getItem('token');
+        const storedUser = JSON.parse(localStorage.getItem('user'));
         console.log(comment);
 
 
@@ -62,7 +62,7 @@ export default function CommentForm({ onCommentAdded }) {
             headers:
             {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
+                'Authorization': `Bearer ${storedUser.token}`
             },
             body: JSON.stringify(comment)
         })
@@ -83,17 +83,13 @@ export default function CommentForm({ onCommentAdded }) {
         setNewComment(value)
     }
 
-    function handleOnCLickRating(index) {
-        setUserRating(index + 1)
-    }
-
-    function renderStars(index) {
+    function renderStars() {
 
         return (
             <>
                 {Array.from({ length: 5 }).map((_, i) => {
                     const isFilled = i < (starsNumber || userRating); // gives true if current index is < of hte clicked or onOver star
-                    console.log(isFilled);
+                    //console.log(isFilled);
 
                     return (
                         <a

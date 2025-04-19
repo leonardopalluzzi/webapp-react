@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react'
 
 const AuthContext = createContext()
 
@@ -12,6 +12,14 @@ function AuthProvider({ children }) {
     const [loginEsit, setLoginEsit] = useState({
         state: 'loading'
     })
+
+    useEffect(() => {
+        const storedUser = JSON.parse(localStorage.getItem('user'))
+        if (storedUser) {
+            setLoginEsit(storedUser)
+            setUserLogged(true)
+        }
+    }, [])
 
     function fetchRegister(newUser) {
         fetch('http://localhost:3000/api/v1/movies/users/register', {
@@ -38,7 +46,11 @@ function AuthProvider({ children }) {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                localStorage.setItem('token', data.token);
+                const user = {
+                    token: data.token,
+                    role: data.role
+                }
+                localStorage.setItem('user', JSON.stringify(user));
                 setUserLogged(true)
                 setLoginEsit({
                     state: 'success',
@@ -55,16 +67,9 @@ function AuthProvider({ children }) {
         setUserLogged(false)
     }
 
-    function checkIfLoggedOnRefresh() {
-        const token = localStorage.getItem('token')
-        if (token) {
-            setUserLogged(true)
-        }
-    }
-
     return (
         <>
-            <AuthContext.Provider value={{ loginEsit, signUpEsit, userLogged, checkIfLoggedOnRefresh, fetchRegister, fetchLogin, logout }}>
+            <AuthContext.Provider value={{ loginEsit, signUpEsit, userLogged, fetchRegister, fetchLogin, logout }}>
                 {children}
             </AuthContext.Provider>
         </>
