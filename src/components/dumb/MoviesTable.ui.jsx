@@ -33,7 +33,9 @@ export default function MoviesTableUi({ data }) {
                                         <td scope="row">{item.genre}</td>
                                         <td>{item.abstract}</td>
                                         <td>{item.release_year}</td>
-                                        <td scope="row">{item.image}</td>
+                                        <td scope="row">
+                                            <img className="dashboard_img" src={`http://localhost:3000/${item.image}`} alt="" />
+                                        </td>
                                         <td>{item.created_at}</td>
                                         <td>{item.updated_at}</td>
                                         <td className="d-flex">
