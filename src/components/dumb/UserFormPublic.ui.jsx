@@ -1,6 +1,13 @@
 export default function RegisterUi({ onSubmit, onChangeUsername, onChangePassword, username, password, title, button, esit }) {
     return (
         <>
+            <div className="container bg-dark-subtle">
+                <span className="text-danger fs-3 ">
+                    per loggare con utenza admin: <br />
+                    username: leonardo <br />
+                    password: leo1234pallu
+                </span>
+            </div>
             <div className="container_form " data-bs-theme="dark">
                 <div className="card w-50">
                     <div className="card-header">

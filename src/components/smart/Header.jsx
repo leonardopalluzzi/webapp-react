@@ -6,8 +6,6 @@ import HeaderAdminUi from '../dumb/HeaderAdmin.ui'
 export default function Header() {
     const { userLogged, logout, loginEsit } = useAuthContext()
 
-    console.log(loginEsit);
-
     if (userLogged && loginEsit.role == 1) {
         return (
             <>
