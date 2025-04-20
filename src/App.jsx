@@ -8,6 +8,8 @@ import Login from "./pages/Login"
 import { AuthProvider } from "./contexts/authenticationContext"
 import NotFound from "./pages/NotFound"
 import Dashboard from "./pages/Dashboard"
+import Edit from './pages/Edit'
+import AdminRoute from "./components/smart/AdminRoute"
 
 function App() {
 
@@ -22,7 +24,14 @@ function App() {
                 <Route path="/register" Component={Register} />
                 <Route path="/" Component={Home} />
                 <Route path="/:id/movie" Component={Movie} />
-                <Route path="/admin" Component={Dashboard} />
+                <Route path="/admin" element={
+                  <AdminRoute requiredRole={1}>
+                    <Dashboard />
+                  </AdminRoute>
+                } />
+                <Route path="/:id/edit" element={<AdminRoute requiredRole={1}>
+                  <Edit />
+                </AdminRoute>} />
                 <Route path="*" Component={NotFound} />
               </Route>
             </Routes>

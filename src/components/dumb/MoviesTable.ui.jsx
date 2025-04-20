@@ -1,4 +1,9 @@
+import { useNavigate } from "react-router-dom"
+
 export default function MoviesTableUi({ data }) {
+
+    const navigate = useNavigate()
+
     return (
         <>
             <div className="container">
@@ -39,7 +44,7 @@ export default function MoviesTableUi({ data }) {
                                         <td>{item.created_at}</td>
                                         <td>{item.updated_at}</td>
                                         <td className="d-flex">
-                                            <button className="btn btn-warning mx-3">Edit</button>
+                                            <button onClick={() => navigate(`/${item.id}/edit`)} className="btn btn-warning mx-3">Edit</button >
                                             <button className="btn btn-danger mx-3">Delete</button>
                                         </td>
                                     </tr>
