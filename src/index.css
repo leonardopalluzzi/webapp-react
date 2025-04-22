@@ -160,4 +160,35 @@ main {
 
 /* #endregion dashboard  */
 
-.input_edit_page {}
+.input_edit_page {
+    background: linear-gradient(transparent, black);
+    border-radius: 30px;
+    padding: 1rem;
+    border: none;
+    color: white;
+    margin-bottom: 1rem;
+
+    &.title {
+        font-size: 2.5rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    &.director {
+        font-size: 1.2rem;
+    }
+
+    &.content {
+        font-size: 1.1rem;
+    }
+
+    &.image {
+        margin-top: 1rem;
+        width: 100%;
+
+    }
+}
+
+.change_image {
+    margin-top: 1rem;
+}

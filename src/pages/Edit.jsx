@@ -94,7 +94,7 @@ export default function Edit() {
                         title={movieChanges.title}
                         director={movieChanges.director}
                         genre={movieChanges.genre}
-                        releaseYear={singleMovie.movie.releaseYear}
+                        releaseYear={singleMovie.movie.release_year}
                         lastUpdate={movieChanges.lastUpdate}
                         creationDate={singleMovie.movie.created_at}
                         content={movieChanges.content}

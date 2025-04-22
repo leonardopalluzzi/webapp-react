@@ -2,16 +2,36 @@ export default function EditMovieUi({ title, director, genre, content, image, re
     return (
         <>
             <div className="container py-5">
-                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+                <div className="row row-cols-1 row-cols-sm-2">
                     <div className="col">
-                        <img className="details_image" src={`http://localhost:3000/${image}`} alt="" />
+                        <img className="details_image w-100" src={`http://localhost:3000/${image}`} alt="" />
+
                     </div>
-                    <form onSubmit={(e) => onSubmit(e)} className="col" method="PATCH">
-                        <input className="input_edit_page" name="title" value={title} onChange={(e) => onChange(e.target.name, e.target.value)} type="text" />
-                        <input className="input_edit_page" name="director" value={director} onChange={(e) => onChange(e.target.name, e.target.value)} type="text" />
-                        <input className="input_edit_page" name="content" value={content} onChange={(e) => onChange(e.target.name, e.target.value)} type="text" />
-                        <input className="input_edit_page" name="genre" value={genre} onChange={(e) => onChange(e.target.name, e.target.value)} type="text" />
-                        <input className="input_edit_page" name="lastUpdate" value={lastUpdate} onChange={(e) => onChange(e.target.name, e.target.value)} type="text" />
+                    <form onSubmit={(e) => onSubmit(e)} className="col d-flex flex-column" method="PATCH">
+                        <label htmlFor="title">Title:</label>
+                        <input className="input_edit_page title" name="title" value={title} onChange={(e) => onChange(e.target.name, e.target.value)} type="text" autoFocus />
+
+                        <label htmlFor="director">Director:</label>
+                        <input className="input_edit_page director" name="director" value={director} onChange={(e) => onChange(e.target.name, e.target.value)} type="text" />
+
+                        <label htmlFor="content">Abstract:</label>
+                        <textarea className="input_edit_page content" name="content" value={content} onChange={(e) => onChange(e.target.name, e.target.value)} type="text" />
+
+                        <label htmlFor="genre">Genre:</label>
+                        <input className="input_edit_page genre" name="genre" value={genre} onChange={(e) => onChange(e.target.name, e.target.value)} type="text" />
+
+                        <label htmlFor="image">Change image:</label>
+                        <input className="input_edit_page image" type="file" name="image" />
+
+                        <label htmlFor="lastUpdate">Release Year:</label>
+                        <span className="input_edit_page last_update">{releaseYear}</span>
+
+                        <label htmlFor="lastUpdate">Last Update:</label>
+                        <span className="input_edit_page last_update">{lastUpdate}</span>
+
+                        <label htmlFor="lastUpdate">Creation Date:</label>
+                        <span className="input_edit_page last_update">{creationDate}</span>
+
                         <button className="btn btn-primary">Save</button>
                     </form>
                     <div className="col">
