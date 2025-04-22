@@ -59,6 +59,10 @@ function AuthProvider({ children }) {
             })
             .catch(err => {
                 console.error(err)
+                setLoginEsit({
+                    state: 'error',
+                    message: err.message
+                })
             })
     }
 
