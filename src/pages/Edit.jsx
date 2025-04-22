@@ -46,17 +46,24 @@ export default function Edit() {
     function handleSubmit(e) {
         e.preventDefault()
         console.log('submit');
+        const user = JSON.parse(localStorage.getItem('user'))
+        console.log(user.token);
+
 
         const changedMovie = {
             ...movieChanges,
-            isAdmin: signUpEsit.role
+            isAdmin: signUpEsit.role,
+            token: user.token
         }
 
         console.log(changedMovie);
 
         fetch(`http://localhost:3000/api/v1/movies/${singleMovie.movie.id}`, {
             method: 'PATCH',
-            headers: { 'Content-Type': 'Application/json' },
+            headers: {
+                'Content-Type': 'Application/json',
+                'Authorization': `Bearer ${user.token}`
+            },
             body: JSON.stringify(changedMovie)
         })
             .then(res => res.json())
