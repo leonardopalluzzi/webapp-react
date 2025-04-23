@@ -12,6 +12,7 @@ export default function AddMovieForm() {
         abstract: '',
         director: '',
         genre: '',
+        release_year: '',
         cover_image: ''
     });
 
@@ -34,6 +35,7 @@ export default function AddMovieForm() {
         formDataToSend.append('title', movieDetails.title);
         formDataToSend.append('abstract', movieDetails.abstract);
         formDataToSend.append('director', movieDetails.director);
+        formDataToSend.append('release_year', movieDetails.release_year)
         formDataToSend.append('genre', movieDetails.genre);
         formDataToSend.append('cover_image', movieDetails.cover_image);
 

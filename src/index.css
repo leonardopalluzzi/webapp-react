@@ -284,3 +284,10 @@ main {
     display: table-cell;
 
 }
+
+.thread_page {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -9,10 +9,6 @@ export default function Movie() {
     const { id } = useParams()
 
     const { singleMovie, handleRefresh } = useMovieShow({ id });
-    console.log(singleMovie);
-
-
-
 
     switch (singleMovie.state) {
         case 'loading':
@@ -35,6 +31,7 @@ export default function Movie() {
                         image={singleMovie.movie.image}
                         content={singleMovie.movie.abstract}
                         comments={<CommentsSection onCommentAdded={handleRefresh} comments={singleMovie.movie.reviews} />}
+                        id={id}
                     />
                 </>
             )

@@ -53,6 +53,15 @@ export default function AddMovieFormUi({ onSubmit, onChange, movieDetails, submi
                     />
                 </div>
                 <div className="form-group">
+                    <label>Release Year</label>
+                    <input
+                        type="number"
+                        className="input_edit_page w-100 d-block"
+                        value={movieDetails.release_year}
+                        onChange={(e) => onChange('release_year', e.target.value)}
+                    />
+                </div>
+                <div className="form-group">
                     <label>Cover Image</label>
                     <input
                         type="file"
