@@ -9,6 +9,8 @@ export default function MoviesTable() {
     const { movies } = useMovieContext()
     console.log(movies);
 
+    const user = JSON.parse(localStorage.getItem('user'))
+
     function handleDelete(id) {
         console.log(id);
 
@@ -49,7 +51,7 @@ export default function MoviesTable() {
             return (
                 <>
                     <AddMovieForm />
-                    <MoviesTableUi data={movies.movies} onDelete={handleDelete} />
+                    <MoviesTableUi data={movies.movies} onDelete={handleDelete} user={user.username} />
 
                 </>
             )

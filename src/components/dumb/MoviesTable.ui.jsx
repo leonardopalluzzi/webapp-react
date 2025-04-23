@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { useState } from 'react'
 
-export default function MoviesTableUi({ data, onDelete }) {
+export default function MoviesTableUi({ data, onDelete, user }) {
 
     const [deleteModal, setDeleteModal] = useState({
         display: false,
@@ -13,7 +13,7 @@ export default function MoviesTableUi({ data, onDelete }) {
     return (
         <>
             <div className="container">
-                <h1>Movies Dashboard</h1>
+                <h1>Welcome {user}</h1>
                 <div
                     className="table-responsive"
                 >

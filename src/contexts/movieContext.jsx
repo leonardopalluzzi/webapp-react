@@ -29,7 +29,7 @@ function MovieProvider({ children }) {
                 })
 
             })
-    }, [movies])
+    }, [])
     //funcitons
 
 

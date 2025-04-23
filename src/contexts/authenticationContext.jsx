@@ -47,10 +47,14 @@ function AuthProvider({ children }) {
             .then(data => {
                 console.log(data);
                 const user = {
+                    username: data.username,
+                    password: data.password,
                     token: data.token,
                     role: data.role
                 }
                 localStorage.setItem('user', JSON.stringify(user));
+                console.log('utente salvato in local storage');
+
                 setUserLogged(true)
                 setLoginEsit({
                     state: 'success',
