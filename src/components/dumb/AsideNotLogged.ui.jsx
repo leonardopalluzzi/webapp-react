@@ -9,10 +9,22 @@ export default function AsideNotLoggedUi() {
                         <li><NavLink to={"/"}>Home</NavLink></li>
                         <li><NavLink to={"/"}>Profile</NavLink></li>
                         <li><NavLink to={"/"}>My threads</NavLink></li>
-                        <li><NavLink to={"/"}>Register</NavLink></li>
-                        <li><NavLink to={"/"}>Login</NavLink></li>
+                        <li><NavLink to={"/register"}>Register</NavLink></li>
+                        <li><NavLink to={"/login"}>Login</NavLink></li>
                     </ul>
                 </div>
+                <div className="container">
+                    <div className="popular pop_container">
+                        <h5 className="mb-4">Popular Threads</h5>
+                        <ul className="list-unstyled">
+                            <li>Lorem.</li>
+                            <li>Nihil?</li>
+                            <li>Aspernatur.</li>
+                            <li>Maxime!</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <div>
                     <button className="btn btn-warning">Logout</button>
                 </div>

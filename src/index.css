@@ -367,6 +367,7 @@ main {
         justify-content: space-between;
         align-items: center;
         padding-bottom: 2rem;
+        font-size: 1.1rem;
 
         li {
             margin-bottom: 0.8rem;
@@ -421,4 +422,19 @@ main {
         background: linear-gradient(to bottom, transparent, black);
     }
 
+}
+
+.pop_container {
+    border-top: 1px solid rgba(128, 128, 128, 0.541);
+    border-bottom: 1px solid rgba(128, 128, 128, 0.541);
+    padding: 1rem;
+
+    li {
+        transition-duration: 0.5s;
+
+        &:hover {
+            cursor: pointer;
+            color: #3477f3;
+        }
+    }
 }
