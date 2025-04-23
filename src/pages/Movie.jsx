@@ -8,7 +8,7 @@ export default function Movie() {
 
     const { id } = useParams()
 
-    const { singleMovie, handleCommentAdded } = useMovieShow({ id });
+    const { singleMovie, handleRefresh } = useMovieShow({ id });
     console.log(singleMovie);
 
 
@@ -34,7 +34,7 @@ export default function Movie() {
                         title={singleMovie.movie.title}
                         image={singleMovie.movie.image}
                         content={singleMovie.movie.abstract}
-                        comments={<CommentsSection onCommentAdded={handleCommentAdded} comments={singleMovie.movie.reviews} />}
+                        comments={<CommentsSection onCommentAdded={handleRefresh} comments={singleMovie.movie.reviews} />}
                     />
                 </>
             )

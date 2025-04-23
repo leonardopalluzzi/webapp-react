@@ -7,6 +7,9 @@ export default function CommentsSection({ comments, onCommentAdded }) {
         return (
             <>
                 <h4>No comments yet...</h4>
+                <div>
+                    <CommentForm onCommentAdded={onCommentAdded} />
+                </div>
             </>
         )
     } else {

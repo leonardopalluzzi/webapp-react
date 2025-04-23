@@ -7,7 +7,7 @@ import EditMovieUi from "../components/dumb/EditMovie.ui";
 export default function Edit() {
 
     const { id } = useParams()
-    const { singleMovie } = useMovieShow({ id })
+    const { singleMovie, handleRefresh } = useMovieShow({ id })
 
     const [movieChanges, setMovieChanges] = useState({
         title: '',
@@ -70,6 +70,8 @@ export default function Edit() {
 
             })
             .catch(err => console.error(err))
+
+        handleRefresh()
     }
 
     switch (singleMovie.state) {

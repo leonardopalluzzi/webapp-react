@@ -10,7 +10,7 @@ export default function useMovieShow({ id }) {
 
     const showEndpoint = `http://localhost:3000/api/v1/movies/${id}`
 
-    function handleCommentAdded() {
+    function handleRefresh() {
         setRefreshKey(prevKey => prevKey + 1); // Cambia il valore per forzare il re-render
     }
 
@@ -34,6 +34,6 @@ export default function useMovieShow({ id }) {
     }, [refreshKey])
 
 
-    return { singleMovie, handleCommentAdded }
+    return { singleMovie, handleRefresh }
 
 }
