@@ -48,10 +48,16 @@ export default function Thread() {
             return (
                 <>
                     <ThreadDetailsUi
-                        title={thread.results.thread_title}
-                        creator={thread.results.thread_author}
-                        image={thread.results.movie_image}
-                        messages={thread.results.message_content}
+                        threadTitle={thread.results.thread_title}
+                        threadCreationDate={thread.results.thread_creation_date}
+                        threadCreator={thread.results.thread_author}
+                        movieTitle={thread.results.movie_title}
+                        movieReleaseYear={thread.results.movie_release_year}
+                        movieImage={thread.results.movie_image}
+                        movieGenre={thread.results.movie_genre}
+                        movieDirector={thread.results.movie_director}
+                        movieDescription={thread.results.movie_description}
+                        messages={thread.results.messages}
                     />
                 </>
             )
