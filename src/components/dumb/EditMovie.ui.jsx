@@ -1,7 +1,18 @@
+import { useNavigate } from "react-router-dom"
+
 export default function EditMovieUi({ title, director, genre, content, image, releaseYear, creationDate, lastUpdate, onChange, onSubmit }) {
+
+    const navigate = useNavigate()
+
+
     return (
         <>
             <div className="container py-5">
+                <div className="d-flex justify-content-between align-items-center">
+                    <h1>Edit Movie Details</h1>
+                    <button onClick={() => navigate('/admin')} className="btn btn-warning">Go back to home</button>
+                </div>
+
                 <div className="row row-cols-1 row-cols-sm-2">
                     <div className="col">
                         <img className="details_image w-100" src={`http://localhost:3000/${image}`} alt="" />
