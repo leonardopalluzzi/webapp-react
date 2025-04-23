@@ -1,7 +1,12 @@
 import { useState } from 'react';
 import AddMovieFormUi from '../dumb/AddMovieForm.ui';
+import { useMovieContext } from '../../contexts/movieContext';
 
 export default function AddMovieForm() {
+
+    const { fetchMovies } = useMovieContext()
+
+
     const [movieDetails, setMovieDetails] = useState({
         title: '',
         abstract: '',
@@ -53,11 +58,14 @@ export default function AddMovieForm() {
             .then(data => {
                 setSubmitStatus({ state: 'success', message: 'Movie added successfully!' });
                 setMovieDetails({ title: '', abstract: '', director: '', genre: '', cover_image: '' });
+                fetchMovies()
             })
             .catch(err => {
                 console.error(err);
                 setSubmitStatus({ state: 'error', message: 'Failed to add movie. Please try again.' });
             });
+
+
     }
 
     return (

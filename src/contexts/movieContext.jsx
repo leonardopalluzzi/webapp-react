@@ -12,6 +12,10 @@ function MovieProvider({ children }) {
     })
 
     useEffect(() => {
+        fetchMovies()
+    }, [])
+
+    function fetchMovies() {
         fetch(indexEndpoint)
             .then(res => res.json())
             .then(data => {
@@ -29,14 +33,13 @@ function MovieProvider({ children }) {
                 })
 
             })
-    }, [])
-    //funcitons
+    }
 
 
     //return
     return (
         <>
-            <MovieContext.Provider value={{ movies }}>
+            <MovieContext.Provider value={{ movies, fetchMovies }}>
                 {children}
             </MovieContext.Provider>
         </>
