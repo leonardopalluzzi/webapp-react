@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
 
-export default function ListUi({ data }) {
+export default function ListUi({ data, title }) {
     return (
         <>
             <div className="container">
-                <h2 className="py-4">Movie List: </h2>
+                <h2 className="py-4">{title}</h2>
                 <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
                     {data.map(item => (
                         <Link key={item.id} className='link_list' to={`/${item.id}/movie`}>

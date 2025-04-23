@@ -12,6 +12,7 @@ import Edit from './pages/Edit'
 import AdminRoute from "./components/smart/AdminRoute"
 import AddMovie from "./pages/AddMovie"
 import TreadCreation from "./pages/TreadCreation"
+import Threads from "./pages/Threads"
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
                 <Route path="/" Component={Home} />
                 <Route path="/:id/movie" Component={Movie} />
                 <Route path="/:id/create_tread" Component={TreadCreation} />
+                <Route path="/threads" Component={Threads} />
                 <Route path="/admin" element={
                   <AdminRoute requiredRole={1}>
                     <Dashboard />

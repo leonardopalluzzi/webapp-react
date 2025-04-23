@@ -25,7 +25,7 @@ export default function HeaderNotLoggedUi() {
                                 <NavLink className="nav-link active" to='/'>Home</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link active" to='/film'>Film</NavLink>
+                                <NavLink className="nav-link active" to='/threads'>Threads</NavLink>
                             </li>
                         </ul>
                     </div>
