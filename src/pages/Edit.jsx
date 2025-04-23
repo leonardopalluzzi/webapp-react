@@ -27,7 +27,7 @@ export default function Edit() {
                 genre: singleMovie.movie.genre,
                 lastUpdate: singleMovie.movie.updated_at,
                 content: singleMovie.movie.abstract,
-                image: ''
+                image: singleMovie.movie.image
             })
         }
 
