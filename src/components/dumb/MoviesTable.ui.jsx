@@ -22,7 +22,7 @@ export default function MoviesTableUi({ data, onDelete, user }) {
                     className="table-responsive"
                 >
                     <table
-                        className="table table-primary position-relative"
+                        className="movie_table position-relative"
                     >
                         <thead>
                             <tr>
@@ -38,23 +38,23 @@ export default function MoviesTableUi({ data, onDelete, user }) {
                                 <th scope="col">OPERATIONS</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody className="table_body">
                             {
                                 data.map(item => (
-                                    <tr key={item.id} className="">
+                                    <tr key={item.id} className="table_row">
                                         <td scope="row">{item.id}</td>
                                         <td>{item.title}</td>
                                         <td>{item.director}</td>
-                                        <td scope="row">{item.genre}</td>
-                                        <td>{item.abstract}</td>
+                                        <td>{item.genre}</td>
+                                        <td className="abstract">{item.abstract}</td> {/* Troncamento del testo */}
                                         <td>{item.release_year}</td>
-                                        <td scope="row">
-                                            <img className="dashboard_img" src={`http://localhost:3000/${item.image}`} alt="" />
+                                        <td>
+                                            <img className="dashboard_img" src={`http://localhost:3000/${item.image}`} alt={item.title} />
                                         </td>
                                         <td>{item.created_at}</td>
                                         <td>{item.updated_at}</td>
                                         <td className="d-flex">
-                                            <button onClick={() => navigate(`/${item.id}/edit`)} className="btn btn-warning mx-3">Edit</button >
+                                            <button onClick={() => navigate(`/${item.id}/edit`)} className="btn btn-warning mx-3">Edit</button>
                                             <button onClick={() => setDeleteModal({ display: true, id: item.id })} className="btn btn-danger mx-3">Delete</button>
                                         </td>
                                     </tr>

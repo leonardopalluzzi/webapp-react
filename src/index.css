@@ -230,3 +230,57 @@ main {
 .details_page {
     min-height: 80vh;
 }
+
+.movie_table {
+    width: 100%;
+    background: linear-gradient(to bottom, #1e3c72, #2a5298);
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    color: white;
+
+}
+
+.movie_table th {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 1rem;
+    text-align: left;
+    font-weight: bold;
+}
+
+.movie_table td {
+    padding: 1rem;
+    text-align: left;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.movie_table .table_body {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.movie_table .table_row {
+    transition: background-color 0.3s ease;
+}
+
+.movie_table .table_row:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.movie_table .dashboard_img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 5px;
+
+}
+
+.movie_table .abstract {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
+    display: table-cell;
+
+}
