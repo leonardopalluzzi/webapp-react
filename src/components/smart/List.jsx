@@ -23,7 +23,7 @@ export default function List() {
         case 'success':
             return (
                 <>
-                    <ListUi data={movies.movies} title={'Movie List'} />
+                    <ListUi data={movies.movies} title={'Movie List'} path={'movie'} />
                 </>
             )
     }

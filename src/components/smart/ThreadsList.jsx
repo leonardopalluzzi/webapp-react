@@ -45,7 +45,7 @@ export default function ThreadsList() {
         case 'success':
             return (
                 <>
-                    <ListUi data={threads.threadsList} title={'Threads List'} />
+                    <ListUi data={threads.threadsList} title={'Threads List'} path={'thread'} />
                 </>
             )
     }
