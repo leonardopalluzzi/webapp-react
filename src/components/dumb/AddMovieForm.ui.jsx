@@ -1,23 +1,33 @@
+import { useNavigate } from "react-router-dom";
+
 export default function AddMovieFormUi({ onSubmit, onChange, movieDetails, submitStatus }) {
+
+    const navigate = useNavigate()
+
     return (
-        <div className="container">
-            <form onSubmit={(e) => { e.preventDefault(); onSubmit(); }} encType="multipart/form-data">
+        <div className="container py-5">
+            <div className="d-flex justify-content-between align-items-center my-4">
                 <h2>Add a New Book</h2>
+                <button onClick={() => navigate('/admin')} className="btn btn-warning">Go back to home</button>
+            </div>
+
+            <form onSubmit={(e) => { e.preventDefault(); onSubmit(); }} encType="multipart/form-data">
                 <div className="form-group">
                     <label>Title</label>
                     <input
                         type="text"
-                        className="form-control"
+                        className="input_edit_page w-100 d-block"
                         value={movieDetails.title}
                         onChange={(e) => onChange('title', e.target.value)}
+                        autoFocus
                         required
                     />
                 </div>
                 <div className="form-group">
                     <label>Abstract</label>
-                    <input
+                    <textarea
                         type="text"
-                        className="form-control"
+                        className="input_edit_page w-100 d-block"
                         value={movieDetails.abstract}
                         onChange={(e) => onChange('abstract', e.target.value)}
                         required
@@ -27,7 +37,7 @@ export default function AddMovieFormUi({ onSubmit, onChange, movieDetails, submi
                     <label>Director</label>
                     <input
                         type="text"
-                        className="form-control"
+                        className="input_edit_page w-100 d-block"
                         value={movieDetails.director}
                         onChange={(e) => onChange('director', e.target.value)}
                         required
@@ -37,7 +47,7 @@ export default function AddMovieFormUi({ onSubmit, onChange, movieDetails, submi
                     <label>Genre</label>
                     <input
                         type="text"
-                        className="form-control"
+                        className="input_edit_page w-100 d-block"
                         value={movieDetails.genre}
                         onChange={(e) => onChange('genre', e.target.value)}
                     />
@@ -46,7 +56,7 @@ export default function AddMovieFormUi({ onSubmit, onChange, movieDetails, submi
                     <label>Cover Image</label>
                     <input
                         type="file"
-                        className="form-control"
+                        className="input_edit_page w-100 d-block"
                         onChange={(e) => onChange('cover_image', e.target.files[0])}
                     />
                 </div>

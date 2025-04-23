@@ -1,12 +1,11 @@
 import MoviesTableUi from "../dumb/MoviesTable.ui"
 import { useMovieContext } from '../../contexts/movieContext'
 import Error from '../../pages/Error'
-import AddMovieForm from "./AddMovieForm"
 
 export default function MoviesTable() {
 
 
-    const { movies } = useMovieContext()
+    const { movies, fetchMovies } = useMovieContext()
     console.log(movies);
 
     const user = JSON.parse(localStorage.getItem('user'))
@@ -29,7 +28,7 @@ export default function MoviesTable() {
             .then(res => res)
             .then(data => {
                 console.log(data);
-
+                fetchMovies()
             })
             .catch(err => console.error(err))
     }
@@ -50,7 +49,6 @@ export default function MoviesTable() {
         case 'success':
             return (
                 <>
-                    <AddMovieForm />
                     <MoviesTableUi data={movies.movies} onDelete={handleDelete} user={user.username} />
 
                 </>

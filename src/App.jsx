@@ -10,6 +10,7 @@ import NotFound from "./pages/NotFound"
 import Dashboard from "./pages/Dashboard"
 import Edit from './pages/Edit'
 import AdminRoute from "./components/smart/AdminRoute"
+import AddMovie from "./pages/AddMovie"
 
 function App() {
 
@@ -29,6 +30,9 @@ function App() {
                     <Dashboard />
                   </AdminRoute>
                 } />
+                <Route path="/addmovie" element={<AdminRoute requiredRole={1}>
+                  <AddMovie />
+                </AdminRoute>} />
                 <Route path="/:id/edit" element={<AdminRoute requiredRole={1}>
                   <Edit />
                 </AdminRoute>} />
