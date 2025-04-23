@@ -1,6 +1,7 @@
 import MoviesTableUi from "../dumb/MoviesTable.ui"
 import { useMovieContext } from '../../contexts/movieContext'
 import Error from '../../pages/Error'
+import AddMovieForm from "./AddMovieForm"
 
 export default function MoviesTable() {
 
@@ -47,7 +48,9 @@ export default function MoviesTable() {
         case 'success':
             return (
                 <>
+                    <AddMovieForm />
                     <MoviesTableUi data={movies.movies} onDelete={handleDelete} />
+
                 </>
             )
     }

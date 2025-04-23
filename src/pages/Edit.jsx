@@ -3,11 +3,8 @@ import { useState, useEffect } from 'react'
 import useMovieShow from "../hooks/useMovieShow";
 import Error from './Error'
 import EditMovieUi from "../components/dumb/EditMovie.ui";
-import { useAuthContext } from "../contexts/authenticationContext";
 
 export default function Edit() {
-
-    const { signUpEsit } = useAuthContext()
 
     const { id } = useParams()
     const { singleMovie } = useMovieShow({ id })
@@ -30,7 +27,7 @@ export default function Edit() {
                 genre: singleMovie.movie.genre,
                 lastUpdate: singleMovie.movie.updated_at,
                 content: singleMovie.movie.abstract,
-                image: singleMovie.movie.image
+                image: ''
             })
         }
 
@@ -47,24 +44,25 @@ export default function Edit() {
         e.preventDefault()
         console.log('submit');
         const user = JSON.parse(localStorage.getItem('user'))
-        console.log(user.token);
 
+        const formToSend = new FormData();
 
-        const changedMovie = {
-            ...movieChanges,
-            isAdmin: signUpEsit.role,
-            token: user.token
-        }
+        formToSend.append('title', movieChanges.title)
+        formToSend.append('director', movieChanges.director)
+        formToSend.append('genre', movieChanges.genre)
+        formToSend.append('lastUpdate', movieChanges.lastUpdate)
+        formToSend.append('content', movieChanges.content)
+        formToSend.append('image', movieChanges.image)
 
-        console.log(changedMovie);
+        console.log(movieChanges);
+
 
         fetch(`http://localhost:3000/api/v1/movies/${singleMovie.movie.id}`, {
             method: 'PATCH',
             headers: {
-                'Content-Type': 'Application/json',
                 'Authorization': `Bearer ${user.token}`
             },
-            body: JSON.stringify(changedMovie)
+            body: formToSend
         })
             .then(res => res.json())
             .then(data => {
@@ -98,7 +96,7 @@ export default function Edit() {
                         lastUpdate={movieChanges.lastUpdate}
                         creationDate={singleMovie.movie.created_at}
                         content={movieChanges.content}
-                        image={movieChanges.image}
+                        image={singleMovie.movie.image}
                         onChange={handleChange}
                         onSubmit={handleSubmit}
                     />

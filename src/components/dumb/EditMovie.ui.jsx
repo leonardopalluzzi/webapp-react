@@ -7,7 +7,7 @@ export default function EditMovieUi({ title, director, genre, content, image, re
                         <img className="details_image w-100" src={`http://localhost:3000/${image}`} alt="" />
 
                     </div>
-                    <form onSubmit={(e) => onSubmit(e)} className="col d-flex flex-column" method="PATCH">
+                    <form onSubmit={(e) => onSubmit(e)} className="col d-flex flex-column" method="PATCH" encType="multipart/form-data">
                         <label htmlFor="title">Title:</label>
                         <input className="input_edit_page title" name="title" value={title} onChange={(e) => onChange(e.target.name, e.target.value)} type="text" autoFocus />
 
@@ -21,7 +21,7 @@ export default function EditMovieUi({ title, director, genre, content, image, re
                         <input className="input_edit_page genre" name="genre" value={genre} onChange={(e) => onChange(e.target.name, e.target.value)} type="text" />
 
                         <label htmlFor="image">Change image:</label>
-                        <input className="input_edit_page image" type="file" name="image" />
+                        <input className="input_edit_page image" type="file" name="image" onChange={(e) => onChange(e.target.name, e.target.files[0])} />
 
                         <label htmlFor="lastUpdate">Release Year:</label>
                         <span className="input_edit_page last_update">{releaseYear}</span>
