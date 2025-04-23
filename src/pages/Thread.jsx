@@ -11,6 +11,8 @@ export default function Thread() {
         state: 'loading'
     })
 
+    const [newMessage, setNewMessage] = useState('')
+
     useEffect(() => {
         fetch(`http://localhost:3000/api/v1/threads/${id}`)
             .then(res => res.json())
@@ -30,6 +32,19 @@ export default function Thread() {
                 })
             })
     }, [])
+
+    function handleChange(value) {
+        setNewMessage(value)
+    }
+
+    function handleSubmit() {
+        console.log('submit');
+
+        fetch('', {
+            method: 'POST'
+        })
+
+    }
 
     switch (thread.state) {
         case 'loading':
@@ -58,6 +73,9 @@ export default function Thread() {
                         movieDirector={thread.results.movie_director}
                         movieDescription={thread.results.movie_description}
                         messages={thread.results.messages}
+                        newMessage={newMessage}
+                        onChange={handleChange}
+                        onSubmit={handleSubmit}
                     />
                 </>
             )

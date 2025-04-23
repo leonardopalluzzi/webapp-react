@@ -14,6 +14,7 @@ import AddMovie from "./pages/AddMovie"
 import TreadCreation from "./pages/TreadCreation"
 import Threads from "./pages/Threads"
 import Thread from "./pages/Thread"
+import ThreadsLayout from './layouts/ThreadsLayout'
 
 function App() {
 
@@ -23,14 +24,17 @@ function App() {
         <MovieProvider>
           <BrowserRouter>
             <Routes>
+              <Route Component={ThreadsLayout}>
+                <Route path="/threads" Component={Threads} />
+                <Route path="/:id/thread" Component={Thread} />
+              </Route>
               <Route Component={DefaultLayout}>
                 <Route path="/login" Component={Login} />
                 <Route path="/register" Component={Register} />
                 <Route path="/" Component={Home} />
                 <Route path="/:id/movie" Component={Movie} />
                 <Route path="/:id/create_tread" Component={TreadCreation} />
-                <Route path="/threads" Component={Threads} />
-                <Route path="/:id/thread" Component={Thread} />
+
                 <Route path="/admin" element={
                   <AdminRoute requiredRole={1}>
                     <Dashboard />

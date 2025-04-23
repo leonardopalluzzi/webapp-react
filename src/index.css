@@ -6,6 +6,13 @@ body {
     color: white;
 }
 
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 20;
+}
+
 /* #region jumbo  */
 
 .jumbo {
@@ -290,4 +297,128 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+
+
+.card_thread {
+    background-color: transparent;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid white;
+
+    .card_header_thread {
+        h6 {
+            font-size: 1.5rem;
+        }
+    }
+
+    span {
+        font-size: 0.8rem;
+        color: gray;
+        float: right;
+    }
+}
+
+.movie_img {
+    position: relative;
+    margin: auto;
+    margin-bottom: 4rem;
+    width: 50%;
+    aspect-ratio: 1;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px black;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+    }
+
+    .movie_details {
+        position: absolute;
+        padding: 1rem;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.479);
+    }
+}
+
+.threads_layout {
+    height: 100vh;
+    display: flex;
+    width: 100%;
+
+    .threads_main {
+        overflow: scroll;
+    }
+
+    .aside_threads {
+        padding-top: 8rem;
+        position: absolute;
+        border-right: 1px solid rgba(128, 128, 128, 0.342);
+        left: 0;
+        width: 100%;
+        background-color: #202529;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 2rem;
+
+        li {
+            margin-bottom: 0.8rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            transition-duration: 0.5s;
+
+            &:hover {
+                color: #3477f3;
+            }
+        }
+    }
+
+    .threads_main::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .threads_main {
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
+    }
+}
+
+.header_threads {
+    background-color: #202529;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.445);
+    padding: 1rem;
+
+    .serachbar_container {
+        width: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .threads_serachbar {
+        padding: 0.3rem;
+        color: white;
+        width: 30%;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.541);
+        border-radius: 20px;
+        background: linear-gradient(to bottom, transparent, black);
+    }
+
 }
