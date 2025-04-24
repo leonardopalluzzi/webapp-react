@@ -17,7 +17,7 @@ export default function Dashboard() {
         case 0:
             return (
                 <>
-                    <h1>non sei admin</h1>
+                    <h1>You are not admin</h1>
                 </>
             )
     }
