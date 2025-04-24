@@ -46,6 +46,7 @@ function AuthProvider({ children }) {
             .then(res => res.json())
             .then(data => {
                 const user = {
+                    id: data.id,
                     username: data.username,
                     password: data.password,
                     token: data.token,

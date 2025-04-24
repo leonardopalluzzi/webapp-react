@@ -1,5 +1,6 @@
 import MessageFormUi from "./MessageForm.ui"
 import { useNavigate } from "react-router-dom"
+import ThreadsMessageUi from "./ThreadsMessage.ui"
 
 export default function ThreadDetailsUi({ submitEsit, newMessage, onChange, onSubmit, threadTitle, threadCreationDate, threadCreator, movieTitle, movieReleaseYear, movieImage, movieGenre, movieDirector, movieDescription, messages }) {
     const navigate = useNavigate()
@@ -28,16 +29,11 @@ export default function ThreadDetailsUi({ submitEsit, newMessage, onChange, onSu
 
                     {messages.map(item => (
                         <>
-                            <div className="card_thread">
-                                <div className="card_header_thread">
-                                    <h6>{item.username}:</h6>
-                                </div>
-                                <div className="card_body_thread">
-                                    <div>{item.content}</div>
-                                </div>
-                                <span>{item.creation_date}</span>
-                            </div>
-
+                            <ThreadsMessageUi
+                                username={item.username}
+                                content={item.content}
+                                creation_date={item.creation_date}
+                            />
                         </>
                     ))}
 
