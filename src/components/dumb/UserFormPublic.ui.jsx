@@ -6,7 +6,7 @@ export default function RegisterUi({ onSubmit, onChangeUsername, onChangePasswor
 
     return (
         <>
-            <div className="container bg-dark-subtle">
+            <div className="container bg-dark-subtle public_form_container">
                 <span className="text-danger fs-3 ">
                     per loggare con utenza admin: <br />
                     username: leonardo <br />

@@ -13,7 +13,7 @@ export default function MoviesTableUi({ data, onDelete, user }) {
     return (
         <>
             <div className="container">
-                <div className="d-flex justify-content-between my-4 align-items-center">
+                <div className="d-flex justify-content-between my-4 align-items-center dashborad_container">
                     <h1>Welcome {user}</h1>
                     <button onClick={() => navigate('/addmovie')} className="btn btn-primary">Add a Movie</button>
                 </div>

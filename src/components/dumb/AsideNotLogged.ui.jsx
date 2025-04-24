@@ -7,6 +7,7 @@ export default function AsideNotLoggedUi() {
                 <div className="container">
                     <ul className="list-unstyled">
                         <li><NavLink to={"/"}>Home</NavLink></li>
+                        <li><NavLink to={"/threads"}>Threads</NavLink></li>
                         <li><NavLink to={"/"}>Profile</NavLink></li>
                         <li><NavLink to={"/"}>My threads</NavLink></li>
                         <li><NavLink to={"/register"}>Register</NavLink></li>

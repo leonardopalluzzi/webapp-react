@@ -25,7 +25,7 @@ export default function TreadCreation() {
             title: threadTitle,
         }
 
-        fetch('http://localhost:3000/api/v1/movies/threads', {
+        fetch('http://localhost:3000/api/v1/threads', {
             method: 'POST',
             headers: {
                 'Content-Type': 'Application/json',
@@ -44,6 +44,7 @@ export default function TreadCreation() {
             .catch(err => console.error(err))
 
         setTreadTitle('')
+        //navigate('/threads')
     }
 
     function redirect() {

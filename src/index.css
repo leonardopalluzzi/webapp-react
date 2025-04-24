@@ -96,6 +96,11 @@ main {
 
 
 /* #region movie  */
+
+.details_page {
+    margin-top: 4rem;
+}
+
 .details_image {
     max-width: 100%;
 }
@@ -148,6 +153,10 @@ main {
 
 }
 
+.public_form_container {
+    margin-top: 3.5rem;
+}
+
 .public_form {
     margin: auto;
     height: 30vh;
@@ -160,6 +169,10 @@ main {
 /* #endregion authentication  */
 
 /* #region dashboard  */
+
+.dashborad_container {
+    padding-top: 6rem;
+}
 
 .dashboard_img {
     max-width: 100%;

@@ -11,9 +11,17 @@ export default function Thread() {
         state: 'loading'
     })
 
+    const [refreshKey, setRefreshKey] = useState(0)
+
     const [newMessage, setNewMessage] = useState('')
+    const [submitEsit, setSubmitEsit] = useState({
+        state: '',
+        message: ''
+    })
 
     useEffect(() => {
+        console.log(id);
+
         fetch(`http://localhost:3000/api/v1/threads/${id}`)
             .then(res => res.json())
             .then(data => {
@@ -31,7 +39,7 @@ export default function Thread() {
                     message: err.message
                 })
             })
-    }, [])
+    }, [refreshKey])
 
     function handleChange(value) {
         setNewMessage(value)
@@ -40,10 +48,29 @@ export default function Thread() {
     function handleSubmit() {
         console.log('submit');
 
-        fetch('', {
-            method: 'POST'
-        })
+        const user = JSON.parse(localStorage.getItem('user'))
 
+        const sendMessage = {
+            thread_id: id,
+            content: newMessage
+        }
+
+        fetch('http://localhost:3000/api/v1/messages', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'Application/json',
+                'Authorization': `Bearer ${user.token}`
+            },
+            body: JSON.stringify(sendMessage)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setSubmitEsit(data);
+                setRefreshKey(prevKey => prevKey + 1)
+            })
+            .catch(err => console.error(err))
+        setNewMessage('')
     }
 
     switch (thread.state) {
@@ -76,6 +103,7 @@ export default function Thread() {
                         newMessage={newMessage}
                         onChange={handleChange}
                         onSubmit={handleSubmit}
+                        submitEsit={submitEsit}
                     />
                 </>
             )
