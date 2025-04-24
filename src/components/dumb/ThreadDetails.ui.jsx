@@ -1,9 +1,12 @@
 import MessageFormUi from "./MessageForm.ui"
+import { useNavigate } from "react-router-dom"
 
 export default function ThreadDetailsUi({ submitEsit, newMessage, onChange, onSubmit, threadTitle, threadCreationDate, threadCreator, movieTitle, movieReleaseYear, movieImage, movieGenre, movieDirector, movieDescription, messages }) {
+    const navigate = useNavigate()
     return (
         <>
             <div className="container my-5 py-5">
+                <button onClick={() => navigate(-1)} className="btn btn-light"><i class="bi bi-arrow-bar-left"></i> Back</button>
                 <div className="movie_img">
                     <img src={`http://localhost:3000/${movieImage}`} alt="" />
                     <div className="movie_details">

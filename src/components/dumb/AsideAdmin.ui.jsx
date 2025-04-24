@@ -1,6 +1,6 @@
 import { NavLink, Link } from "react-router-dom"
 
-export default function AsideNotLoggedUi() {
+export default function AsideAdminUi() {
     return (
         <>
             <aside className="aside_threads">
@@ -8,8 +8,9 @@ export default function AsideNotLoggedUi() {
                     <ul className="list-unstyled">
                         <li><NavLink to={"/"}>Home</NavLink></li>
                         <li><NavLink to={"/threads"}>Threads</NavLink></li>
-                        <li><NavLink to={"/register"}>Register</NavLink></li>
-                        <li><NavLink to={"/login"}>Login</NavLink></li>
+                        <li><NavLink to={"/"}>Profile</NavLink></li>
+                        <li><NavLink to={"/admin"}>Dashboard</NavLink></li>
+                        <li><NavLink to={"/"}>My threads</NavLink></li>
                     </ul>
                 </div>
                 <div className="container">
@@ -22,6 +23,10 @@ export default function AsideNotLoggedUi() {
                             <li>Maxime!</li>
                         </ul>
                     </div>
+                </div>
+
+                <div>
+                    <button className="btn btn-warning">Logout</button>
                 </div>
             </aside>
 

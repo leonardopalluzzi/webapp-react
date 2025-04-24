@@ -15,6 +15,7 @@ import TreadCreation from "./pages/TreadCreation"
 import Threads from "./pages/Threads"
 import Thread from "./pages/Thread"
 import ThreadsLayout from './layouts/ThreadsLayout'
+import UserDashboard from "./pages/UserDashboard"
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
               <Route Component={ThreadsLayout}>
                 <Route path="/threads" Component={Threads} />
                 <Route path="/:id/thread" Component={Thread} />
+                <Route path="/dashboard" Component={UserDashboard} />
               </Route>
               <Route Component={DefaultLayout}>
                 <Route path="/login" Component={Login} />
