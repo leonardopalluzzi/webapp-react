@@ -1,8 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { useState } from 'react'
 
-export default function MoviesTableUi({ data, onDelete, user }) {
-
+export default function ThreadsTableUi({ data, onDelete, user }) {
     const [deleteModal, setDeleteModal] = useState({
         display: false,
         id: ''
@@ -27,14 +26,10 @@ export default function MoviesTableUi({ data, onDelete, user }) {
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">TITLE</th>
-                                <th scope="col">DIRECTOR</th>
-                                <th scope="col">GENRE</th>
-                                <th scope="col">ABSTRACT</th>
-                                <th scope="col">RELEASE YEAR</th>
-                                <th scope="col">IMAGE</th>
-                                <th scope="col">CRECREATION DATE</th>
-                                <th scope="col">LAST UPDATE</th>
+                                <th scope="col">ASSOCIATED MOVIE</th>
+                                <th scope="col">THREAD TITLE</th>
+                                <th scope="col">USERNAME</th>
+                                <th scope="col">CREATION DATE</th>
                                 <th scope="col">OPERATIONS</th>
                             </tr>
                         </thead>
@@ -43,18 +38,12 @@ export default function MoviesTableUi({ data, onDelete, user }) {
                                 data.map(item => (
                                     <tr key={item.id} className="table_row">
                                         <td scope="row">{item.id}</td>
+                                        <td>{item.movie_title}</td>
                                         <td>{item.title}</td>
-                                        <td>{item.director}</td>
-                                        <td>{item.genre}</td>
-                                        <td className="abstract">{item.abstract}</td> {/* Troncamento del testo */}
-                                        <td>{item.release_year}</td>
-                                        <td>
-                                            <img className="dashboard_img" src={`http://localhost:3000/${item.image}`} alt={item.title} />
-                                        </td>
-                                        <td>{item.created_at}</td>
-                                        <td>{item.updated_at}</td>
+                                        <td>{item.username}</td>
+                                        <td>{item.creation_date}</td>
                                         <td className="d-flex">
-                                            <button onClick={() => navigate(`/${item.id}/edit`)} className="btn btn-warning mx-3">Edit</button>
+                                            <button onClick={() => navigate(`/${item.id}/thread`)} className="btn btn-warning mx-3">Edit (per ora e uno show)</button>
                                             <button onClick={() => setDeleteModal({ display: true, id: item.id })} className="btn btn-danger mx-3">Delete</button>
                                         </td>
                                     </tr>

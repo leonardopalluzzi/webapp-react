@@ -16,6 +16,8 @@ import Threads from "./pages/Threads"
 import Thread from "./pages/Thread"
 import ThreadsLayout from './layouts/ThreadsLayout'
 import UserDashboard from "./pages/UserProfile"
+import { DashboardProvider } from "./contexts/dashboardContext"
+import { ThreadProvider } from "./contexts/threadsContext"
 
 function App() {
 
@@ -26,7 +28,13 @@ function App() {
           <BrowserRouter>
             <Routes>
               <Route Component={ThreadsLayout}>
-                <Route path="/threads" Component={Threads} />
+
+                <Route path="/threads" element={
+                  <ThreadProvider>
+                    <Threads />
+                  </ThreadProvider>
+                } />
+
                 <Route path="/:id/thread" Component={Thread} />
                 <Route path="/:id/profile" Component={UserDashboard} />
               </Route>
@@ -38,9 +46,13 @@ function App() {
                 <Route path="/:id/create_tread" Component={TreadCreation} />
 
                 <Route path="/admin" element={
-                  <AdminRoute requiredRole={1}>
-                    <Dashboard />
-                  </AdminRoute>
+                  <ThreadProvider>
+                    <DashboardProvider>
+                      <AdminRoute requiredRole={1}>
+                        <Dashboard />
+                      </AdminRoute>
+                    </DashboardProvider>
+                  </ThreadProvider>
                 } />
                 <Route path="/addmovie" element={<AdminRoute requiredRole={1}>
                   <AddMovie />
