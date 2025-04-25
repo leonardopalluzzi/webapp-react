@@ -14,7 +14,6 @@ export default function ThreadsTableUi({ data, onDelete, user }) {
             <div className="container">
                 <div className="d-flex justify-content-between my-4 align-items-center">
                     <h1>Welcome {user}</h1>
-                    <button onClick={() => navigate('/addmovie')} className="btn btn-primary">Add a Movie</button>
                 </div>
 
                 <div
