@@ -50,6 +50,14 @@ export default function Thread() {
 
         const user = JSON.parse(localStorage.getItem('user'))
 
+        if (newMessage.length < 5 || newMessage.length > 200) {
+            setSubmitEsit({
+                state: 'error',
+                message: 'the title should be between 5 and 200 characters'
+            })
+            return
+        }
+
         const sendMessage = {
             thread_id: id,
             content: newMessage
