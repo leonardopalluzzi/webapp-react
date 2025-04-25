@@ -2,6 +2,8 @@ fare module css
 
 rivedere tablla user e form registrazione
 
+migliorare sicurezza autenticazione
+
 aggiustare ui thread
 
 implementare searchbars
