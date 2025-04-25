@@ -158,9 +158,6 @@ main {
 }
 
 .public_form {
-    margin: auto;
-    height: 30vh;
-
     input {
         margin-bottom: 2rem;
     }

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useAuthContext } from '../contexts/authenticationContext'
-import UserFormPublicUi from '../components/dumb/UserFormPublic.ui'
+import LoginFormUi from '../components/dumb/LoginForm.ui'
 
 export default function Login() {
 
@@ -29,7 +29,7 @@ export default function Login() {
 
     return (
         <>
-            <UserFormPublicUi
+            <LoginFormUi
                 redirect={redirect}
                 esit={loginEsit}
                 button={'Login'}

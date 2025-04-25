@@ -1,44 +1,62 @@
 import { useState } from 'react'
 import { useAuthContext } from '../contexts/authenticationContext'
-import UserFormPublicUi from '../components/dumb/UserFormPublic.ui'
+import RegisterFormUi from '../components/dumb/RegisterForm.ui.jsx'
 
 export default function Register() {
 
     const { fetchRegister, signUpEsit } = useAuthContext()
 
-    const [username, setUsername] = useState('')
-    const [password, setPassword] = useState('')
+    const [registerInfo, setRegisterInfo] = useState({
+        username: '',
+        email: '',
+        born_in: '',
+        last_login: '',
+        phone: '',
+        avatar: '',
+        password: '',
+    })
 
-    function handleUsername(user) {
-        setUsername(user)
-    }
-    function handlePassword(pass) {
-        setPassword(pass)
+    function handleChange(key, value) {
+        setRegisterInfo({
+            ...registerInfo,
+            [key]: value
+        })
     }
 
     function handleSubmit() {
-        const newUser = {
-            username: username,
-            password: password,
-            isAdmin: 0
-        }
-        fetchRegister(newUser)
-        setUsername('')
-        setPassword('')
+
+        const userToSend = new FormData();
+
+        userToSend.append('username', registerInfo.username)
+        userToSend.append('email', registerInfo.email)
+        userToSend.append('born_in', registerInfo.born_in)
+        userToSend.append('last_login', registerInfo.last_login)
+        userToSend.append('phone', registerInfo.phone)
+        userToSend.append('avatar', registerInfo.avatar)
+        userToSend.append('password', registerInfo.password)
+
+        fetchRegister(userToSend)
+        setRegisterInfo({
+            username: '',
+            email: '',
+            born_in: '',
+            last_login: '',
+            phone: '',
+            avatar: '',
+            password: '',
+        })
     }
 
     return (
         <>
-            <UserFormPublicUi
+            <RegisterFormUi
                 redirect={'/login'}
                 esit={signUpEsit}
                 button={'Register'}
                 title={'Register Form'}
                 onSubmit={handleSubmit}
-                onChangeUsername={handleUsername}
-                onChangePassword={handlePassword}
-                username={username}
-                password={password}
+                onChange={handleChange}
+                registerInfo={registerInfo}
             />
         </>
     )

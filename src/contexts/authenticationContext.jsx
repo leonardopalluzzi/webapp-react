@@ -25,7 +25,7 @@ function AuthProvider({ children }) {
         fetch('http://localhost:3000/api/v1/movies/users/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(newUser)
+            body: newUser
         })
             .then(res => res.json())
             .then(data => {

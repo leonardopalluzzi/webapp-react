@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 
-export default function RegisterUi({ onSubmit, onChangeUsername, onChangePassword, username, password, title, button, esit, redirect }) {
+export default function LoginFormUi({ onSubmit, onChangeUsername, onChangePassword, username, password, title, button, esit, redirect }) {
 
     const navigate = useNavigate()
 
