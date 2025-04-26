@@ -22,9 +22,10 @@ export default function Login() {
             username: username,
             password: password
         }
+
         fetchLogin(user)
-        setUsername('')
-        setPassword('')
+        // setUsername('')
+        // setPassword('')
     }
 
     return (

@@ -21,10 +21,10 @@ export default function RegisterFormUi({ onSubmit, onChange, registerInfo, title
                     <div className="card-body">
                         <form className="public_form" onSubmit={(e) => { e.preventDefault(); onSubmit() }} method="POST">
                             <input name='username' value={registerInfo.username} onChange={(e) => onChange(e.target.name, e.target.value)} className="form-control" type="text" placeholder="username" required />
-                            <input name='email' value={registerInfo.email} onChange={(e) => onChange(e.target.name, e.target.value)} className="form-control" type="text" placeholder="email" required />
+                            <input name='email' value={registerInfo.email} onChange={(e) => onChange(e.target.name, e.target.value)} className="form-control" type="email" placeholder="email" required />
                             <input name='born_in' value={registerInfo.born_in} onChange={(e) => onChange(e.target.name, e.target.value)} className="form-control" type="date" placeholder="born_in" required />
                             <input name='phone' value={registerInfo.phone} onChange={(e) => onChange(e.target.name, e.target.value)} className="form-control" type="text" placeholder="phone" required />
-                            <input name='avatar' value={registerInfo.avatar} onChange={(e) => onChange(e.target.name, e.target.value)} className="form-control" type="file" placeholder="avatar" required />
+                            <input name='avatar' onChange={(e) => onChange(e.target.name, e.target.files[0])} className="form-control" type="file" placeholder="avatar" />
                             <input name='password' value={registerInfo.password} onChange={(e) => onChange(e.target.name, e.target.value)} className="form-control" type="password" placeholder="password" autoComplete="current-password" required />
                             <button onClick={() => navigate(redirect)} type="submit" className="btn btn-primary" >{button}</button>
                         </form>

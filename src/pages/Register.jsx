@@ -10,7 +10,6 @@ export default function Register() {
         username: '',
         email: '',
         born_in: '',
-        last_login: '',
         phone: '',
         avatar: '',
         password: '',
@@ -24,6 +23,9 @@ export default function Register() {
     }
 
     function handleSubmit() {
+
+        console.log(registerInfo);
+
 
         const userToSend = new FormData();
 

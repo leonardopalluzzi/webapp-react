@@ -22,9 +22,10 @@ function AuthProvider({ children }) {
     }, [])
 
     function fetchRegister(newUser) {
-        fetch('http://localhost:3000/api/v1/movies/users/register', {
+        console.log(newUser);
+
+        fetch('http://localhost:3000/api/v1/users/register', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
             body: newUser
         })
             .then(res => res.json())
@@ -38,12 +39,19 @@ function AuthProvider({ children }) {
     }
 
     function fetchLogin(user) {
-        fetch('http://localhost:3000/api/v1/movies/users/login', {
+        console.log(user);
+
+        fetch('http://localhost:3000/api/v1/users/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user)
         })
-            .then(res => res.json())
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Invalid credentials');
+                }
+                return res.json();
+            })
             .then(data => {
                 const user = {
                     id: data.id,
@@ -51,23 +59,25 @@ function AuthProvider({ children }) {
                     password: data.password,
                     token: data.token,
                     role: data.role
-                }
+                };
                 localStorage.setItem('user', JSON.stringify(user));
                 console.log('utente salvato in local storage');
 
-                setUserLogged(true)
+                setUserLogged(true);
                 setLoginEsit({
                     state: 'success',
                     role: data.role
-                })
+                });
+                setUsername('')
+                setPassword('')
             })
             .catch(err => {
-                console.error(err)
+                console.error(err);
                 setLoginEsit({
                     state: 'error',
                     message: err.message
-                })
-            })
+                });
+            });
     }
 
     function logout() {
