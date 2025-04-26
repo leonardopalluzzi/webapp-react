@@ -39,8 +39,6 @@ function AuthProvider({ children }) {
     }
 
     function fetchLogin(user) {
-        console.log(user);
-
         fetch('http://localhost:3000/api/v1/users/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -68,8 +66,6 @@ function AuthProvider({ children }) {
                     state: 'success',
                     role: data.role
                 });
-                setUsername('')
-                setPassword('')
             })
             .catch(err => {
                 console.error(err);
