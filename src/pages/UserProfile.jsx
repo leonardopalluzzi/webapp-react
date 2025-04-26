@@ -16,7 +16,7 @@ export default function UserProfile() {
 
         const user = JSON.parse(localStorage.getItem('user'))
 
-        fetch(`http://localhost:3000/api/v1/movies/users/${id}`, {
+        fetch(`http://localhost:3000/api/v1/users/${id}`, {
             headers: {
                 'Content-Type': 'Application/json',
                 'Authorization': `Bearer ${user.token}`
