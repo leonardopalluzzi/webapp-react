@@ -9,7 +9,6 @@ export default function Login() {
     const navigate = useNavigate()
 
     const { fetchLogin, loginEsit } = useAuthContext()
-    console.log(loginEsit);
 
     const redirect = '/'
 
