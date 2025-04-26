@@ -1,9 +1,4 @@
-import { useNavigate } from 'react-router-dom'
-
-export default function LoginFormUi({ onSubmit, onChangeUsername, onChangePassword, username, password, title, button, esit, redirect }) {
-
-    const navigate = useNavigate()
-
+export default function LoginFormUi({ onSubmit, onChangeUsername, onChangePassword, username, password, title, button, esit }) {
     return (
         <>
             <div className="container bg-dark-subtle public_form_container">
@@ -22,7 +17,7 @@ export default function LoginFormUi({ onSubmit, onChangeUsername, onChangePasswo
                         <form className="public_form" onSubmit={(e) => { e.preventDefault(); onSubmit() }} method="POST">
                             <input value={username} onChange={(e) => onChangeUsername(e.target.value)} className="form-control" type="text" placeholder="username" required />
                             <input value={password} onChange={(e) => onChangePassword(e.target.value)} className="form-control" type="password" placeholder="password" autoComplete="current-password" required />
-                            <button onClick={() => navigate(redirect)} type="submit" className="btn btn-primary" >{button}</button>
+                            <button type="submit" className="btn btn-primary" >{button}</button>
                         </form>
                         <div className={esit.state == 'success' ? `text-success` : 'text-danger'}>
                             <h6>{esit.state}</h6>

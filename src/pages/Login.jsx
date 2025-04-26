@@ -1,10 +1,16 @@
 import { useState } from 'react'
 import { useAuthContext } from '../contexts/authenticationContext'
 import LoginFormUi from '../components/dumb/LoginForm.ui'
+import { useNavigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 export default function Login() {
 
+    const navigate = useNavigate()
+
     const { fetchLogin, loginEsit } = useAuthContext()
+    console.log(loginEsit);
+
     const redirect = '/'
 
     const [username, setUsername] = useState('')
@@ -28,19 +34,33 @@ export default function Login() {
         setPassword('')
     }
 
-    return (
-        <>
-            <LoginFormUi
-                redirect={redirect}
-                esit={loginEsit}
-                button={'Login'}
-                title={'Login Form'}
-                onSubmit={handleSubmit}
-                onChangeUsername={handleUsername}
-                onChangePassword={handlePassword}
-                username={username}
-                password={password}
-            />
-        </>
-    )
+    function handleEsit() {
+        if (loginEsit.state === 'success') {
+            navigate('/')
+        }
+    }
+
+    switch (loginEsit.state) {
+        case 'loading':
+            return (
+                <>
+                    <LoginFormUi
+                        esit={loginEsit}
+                        button={'Login'}
+                        title={'Login Form'}
+                        onSubmit={handleSubmit}
+                        onChangeUsername={handleUsername}
+                        onChangePassword={handlePassword}
+                        username={username}
+                        password={password}
+                    />
+                </>
+            )
+        case 'success':
+            return (
+                <>
+                    <Navigate to="/" />
+                </>
+            )
+    }
 }

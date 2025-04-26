@@ -4,6 +4,8 @@ const AuthContext = createContext()
 
 function AuthProvider({ children }) {
 
+
+
     const [userLogged, setUserLogged] = useState(false)
     const [signUpEsit, setSignUpEsit] = useState({
         state: 'success',
@@ -42,19 +44,20 @@ function AuthProvider({ children }) {
         fetch('http://localhost:3000/api/v1/users/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(user)
+            body: JSON.stringify(user),
+            credentials: 'include'
         })
-            .then(res => {
+            .then(async res => {
+                const data = await res.json();
                 if (!res.ok) {
-                    throw new Error('Invalid credentials');
+                    throw new Error(data.message || 'Login failed');
                 }
-                return res.json();
+                return data;
             })
             .then(data => {
                 const user = {
                     id: data.id,
                     username: data.username,
-                    password: data.password,
                     token: data.token,
                     role: data.role
                 };
@@ -79,6 +82,9 @@ function AuthProvider({ children }) {
     function logout() {
         localStorage.removeItem('user')
         setUserLogged(false)
+        setLoginEsit({
+            state: 'loading'
+        })
     }
 
     return (
