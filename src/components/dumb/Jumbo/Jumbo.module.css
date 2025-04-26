@@ -1,0 +1,65 @@
+.jumbo {
+    position: relative;
+    max-height: 80vh;
+    width: 100%;
+    overflow: hidden;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.jumboImgContainer {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.jumboImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.jumboImg:hover {
+
+    filter: brightness(0.9);
+}
+
+.jumboInfo {
+    position: absolute;
+    bottom: 15%;
+    left: 5%;
+    color: white;
+    max-width: 50%;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.jumboTitle {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #f0f0f0;
+}
+
+.jumboContent {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
