@@ -1,4 +1,4 @@
-import UserProfileUi from "../components/dumb/UserProfile/UserProfile.ui"
+import UserProfileUi from '../components/dumb/UserProfile/UserProfile.ui'
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react";
 import Error from "./Error";

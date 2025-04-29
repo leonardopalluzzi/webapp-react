@@ -1,4 +1,4 @@
-import ListUi from "../dumb/List.ui"
+import ListUi from "../dumb/MovieList/List.ui"
 import Error from "../../pages/Error"
 import { useThreadContext } from "../../contexts/threadsContext"
 

@@ -1,4 +1,4 @@
-import JumboUi from "../dumb/Jumbo.ui.jsx";
+import JumboUi from "../dumb/Jumbo/Jumbo.ui.jsx";
 import Comments from "./Comments.jsx";
 import { useMovieContext } from '../../contexts/movieContext.jsx';
 import { useState, useEffect } from 'react'

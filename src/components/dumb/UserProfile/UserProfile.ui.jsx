@@ -1,5 +1,5 @@
 import style from './userProfile.module.css'
-import ListUi from '../List.ui'
+import ListUi from '../MovieList/List.ui'
 import ThreadsMessageUi from '../ThreadsMessage.ui'
 
 export default function UserProfileUi({ username, user_threads, user_messages }) {

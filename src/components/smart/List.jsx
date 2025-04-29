@@ -1,5 +1,5 @@
 import { useMovieContext } from '../../contexts/movieContext'
-import ListUi from '../dumb/List.ui'
+import ListUi from '../dumb/MovieList/List.ui'
 import Error from '../../pages/Error'
 
 export default function List() {
