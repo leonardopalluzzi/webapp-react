@@ -3,7 +3,7 @@ import { useThreadContext } from "../../contexts/threadsContext"
 
 export default function ThreadsTable() {
 
-    const { threads } = useThreadContext()
+    const { threads, deleteThread } = useThreadContext()
 
 
     switch (threads.state) {
@@ -24,7 +24,7 @@ export default function ThreadsTable() {
                 <>
                     <ThreadsTableUi
                         data={threads.threadsList}
-                        onDelete={'pippo'}
+                        onDelete={deleteThread}
                         user={'pippo'}
                     />
                 </>

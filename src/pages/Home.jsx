@@ -4,8 +4,6 @@ import List from "../components/smart/List"
 
 export default function Home() {
 
-
-
     return (
         <>
             <Jumbo />

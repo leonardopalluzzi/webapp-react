@@ -42,7 +42,7 @@ export default function ThreadsTableUi({ data, onDelete, user }) {
                                         <td>{item.username}</td>
                                         <td>{item.creation_date}</td>
                                         <td className="d-flex">
-                                            <button onClick={() => navigate(`/${item.id}/thread`)} className="btn btn-warning mx-3">Edit (per ora e uno show)</button>
+                                            <button onClick={() => navigate(`/${item.id}/thread`)} className="btn btn-warning mx-3">Show</button>
                                             <button onClick={() => setDeleteModal({ display: true, id: item.id })} className="btn btn-danger mx-3">Delete</button>
                                         </td>
                                     </tr>

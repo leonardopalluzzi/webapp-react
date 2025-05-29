@@ -30,11 +30,50 @@ function ThreadProvider({ children }) {
             })
     }, [])
 
+    function triggerThreadsFetch() {
+        fetch('http://localhost:3000/api/v1/threads')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setThreads({
+                    state: 'success',
+                    threadsList: data
+                })
 
+            })
+            .catch(err => {
+                console.log(err);
+                setThreads({
+                    state: 'error',
+                    message: err.message
+                })
+
+            })
+    }
+
+
+
+    function deleteThread(itemId) {
+        fetch(`http://localhost:3000/api/v1/threads/${itemId}`, {
+            method: 'DELETE',
+            // headers: {
+            //     'Content-type': 'application/json'
+            // }
+        })
+            // .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                triggerThreadsFetch()
+
+            })
+            .catch(err => {
+                console.error(err.message);
+            })
+    }
 
 
     return (
-        <ThreadContext.Provider value={{ threads }}>
+        <ThreadContext.Provider value={{ threads, deleteThread }}>
             {children}
         </ThreadContext.Provider>
     )

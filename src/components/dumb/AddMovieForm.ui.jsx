@@ -69,7 +69,7 @@ export default function AddMovieFormUi({ onSubmit, onChange, movieDetails, submi
                         onChange={(e) => onChange('cover_image', e.target.files[0])}
                     />
                 </div>
-                <button type="submit" className="btn btn-primary">Add Book</button>
+                <button type="submit" className="btn btn-primary">Add Movie</button>
                 {submitStatus && (
                     <div className={`mt-3 ${submitStatus.state === 'success' ? 'text-success' : 'text-danger'}`}>
                         {submitStatus.message}

@@ -2,6 +2,18 @@ import { Link } from 'react-router-dom';
 import styles from './List.module.css';
 
 export default function ListUi({ data, title, path }) {
+
+    function truncateText(text) {
+        if (text) {
+            if (text.length > 100) {
+                const newText = `${text.slice(0, 100)}...`
+                return newText
+            } else {
+                return text
+            }
+        }
+    }
+
     return (
         <>
             <div className={styles.container}>
@@ -16,7 +28,7 @@ export default function ListUi({ data, title, path }) {
                                     </div>
                                     <div className={styles.cardBody}>
                                         <h3 className={styles.cardTitle}>{item.title}</h3>
-                                        <p className={styles.cardAbstract}>{item.abstract}</p>
+                                        <p className={styles.cardAbstract}>{truncateText(item.abstract)}</p>
                                     </div>
                                 </div>
                             </div>
