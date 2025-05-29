@@ -2,11 +2,11 @@ export default function LoginFormUi({ onSubmit, onChangeUsername, onChangePasswo
     return (
         <>
             <div className="container bg-dark-subtle public_form_container">
-                <span className="text-danger fs-3 ">
+                {/* <span className="text-danger fs-3 ">
                     per loggare con utenza admin: <br />
                     username: leonardo <br />
                     password: leo1234pallu
-                </span>
+                </span> */}
             </div>
             <div className="container_form " data-bs-theme="dark">
                 <div className="card w-50">
